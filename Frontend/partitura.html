@@ -1,0 +1,186 @@
+<!-- Página de partitura -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Tab_logo -->
+    <link rel="icon" type="image/png" href="./Imagenes/tab_logo.png">
+    <!-- Tab_nombre -->
+    <title>Partitura | Bit-els</title>
+    <!-- import bulma.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <!-- import nuestro css -->
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- Link a Home -->
+        <a class="navbar-item" href="./index.html">
+          <!-- Navbar Título -->
+          <h1><strong>BIT-ELS</strong></h1>
+          <!-- Navbar logo -->
+          <img src="./Imagenes/logo.png"
+          alt="Logo del sitio web (notas musicales)">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+
+        <!-- Log out -->
+      </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Log out</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+
+        <!-- Información de la partitura -->
+        <div class="box">
+          <div class="columns is-vcentered">
+            <!-- Imagen -->
+            <div class="column is-one-third">
+              <figure class="image is-3by4">
+                <img src="./Imagenes/partitura1.png" alt="Vista previa de la partitura">
+              </figure>
+            </div>
+
+            <!-- Detalles -->
+            <div class="column">
+              <h1 class="title is-3">Don't Stop Me Now</h1>
+              <h2 class="subtitle is-5">Subido por: <strong>Jazzbro77</strong></h2>
+              <!-- Audio de la canción -->
+              <audio controls>
+                <source src="./Audio_Tracks/Don't Stop Me Now - Queen - 8bit.mp3" type="audio/mpeg">
+              </audio>
+              <p><strong>Artista:</strong> Queen</p>
+              <p><strong>Género:</strong> Rock</p>
+              <p><strong>Instrumento:</strong> Piano</p>
+              <p><strong>Nivel:</strong> Fácil</p>
+              <p><strong>Duración:</strong> 3:35 min</p>
+              <p class="mt-3">
+                <strong>Descripción:</strong>  
+                Transcripción a oído de uno de mis temas favoritos de la banda. Si encuentro tiempo la próxima semana, intentaré arreglar unos errores de la outro.
+              </p>
+
+              <div class="buttons mt-5">
+                <a class="button is-primary">Descargar PDF</a>
+                <a class="button is-link is-light">Editar</a>
+                <a class="button is-danger is-light">Eliminar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PDF embebido -->
+        <div class="box">
+          <h3 class="title is-4">Vista de la partitura</h3>
+          <object data="./Pdfs/Don´t Stop Me Now - Queen.pdf" type="application/pdf" width="100%" height="600px">
+            <p>Tu navegador no puede mostrar el PDF. 
+              <a href="./PDFs/partitura1.pdf" target="_blank">Descargar aquí</a>.
+            </p>
+          </object>
+        </div>
+
+        <!-- Reseñas -->
+        <div class="box">
+          <h3 class="title is-4">Reseñas</h3>
+
+          <!-- Reseña 1 -->
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img class="is-rounded" src="./Imagenes/usuario_avatar.png" alt="Avatar de usuario">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>Marylu111</strong> <small>@marial</small> <small>· Hace 2 días</small>
+                  <br>
+                  🎵 Me encanta tocar esta canción. Muy bien transcripta y fácil de seguir.
+                </p>
+              </div>
+              <div class="has-text-warning">★★★★★</div>
+            </div>
+          </article>
+
+          <!-- Reseña 2 -->
+          <article class="media">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img class="is-rounded" src="./Imagenes/usuario2_avatar.png" alt="Avatar de usuario">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong>JTsnob02</strong> <small>@juant</small> <small>· Hace 5 días</small>
+                  <br>
+                  Varios errores en la parte final. Buen intento para esta versión de principiantes, pero hay espacio para mejoras.
+                </p>
+              </div>
+              <div class="has-text-warning">★★☆☆☆</div>
+            </div>
+          </article>
+
+          <hr>
+
+          <!-- Agregar nueva reseña -->
+          <h4 class="title is-5">Deja tu reseña</h4>
+          <form>
+            <div class="field">
+              <label class="label">Nombre</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Tu nombre">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Comentario</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Escribe tu reseña aquí..."></textarea>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label">Calificación</label>
+              <div class="control">
+                <div class="select">
+                  <select>
+                    <option>5 estrellas</option>
+                    <option>4 estrellas</option>
+                    <option>3 estrellas</option>
+                    <option>2 estrellas</option>
+                    <option>1 estrella</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="control mt-3">
+              <button class="button is-success">Enviar reseña</button>
+            </div>
+          </form>
+        </div>
+      </div>
+        
+    </section>
+  </body>
+</html>
