@@ -184,5 +184,11 @@ form .button.is-success {
   transform: translateY(-2px);
 }
 
+/* Selección: estrellas llenas */
+.star-rating input:checked ~ label {
+  color: var(--naranja-atardecer);
+  text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
+}
+
 
 
