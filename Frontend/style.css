@@ -54,5 +54,15 @@ h1.title, h2.subtitle, h3.title, p, strong {
   text-shadow: 0 0 6px var(--lila-suave), 0 0 10px var(--naranja-atardecer);
 }
 
+/* CAJAS (INFO, PDF, RESEÑAS) */
+.box {
+  background: var(--gris-transparente);
+  border: 2px solid var(--lila-suave);
+  border-radius: 12px;
+  box-shadow: 0 0 12px var(--lila-suave), 0 0 20px var(--naranja-atardecer);
+  padding: 2rem;
+  position: relative;
+}
+
 
 
