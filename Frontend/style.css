@@ -99,6 +99,14 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   transition: all 0.25s ease;
 }
 
+.button:hover {
+  background-color: var(--naranja-atardecer);
+  color: var(--turquesa);
+  box-shadow: 0 0 12px var(--naranja-atardecer), 0 0 20px var(--lila-suave);
+  transform: translateY(-3px);
+}
+
+
 
 
 
