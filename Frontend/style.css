@@ -35,4 +35,11 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* TÍTULOS Y TEXTOS */
+h2.title, h3.title, .title.is-4, .subtitle, p, strong {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--blanco);
+}
+
+
 
