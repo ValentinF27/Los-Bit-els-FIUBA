@@ -101,4 +101,11 @@ audio {
   transform: translateY(-3px);
 }
 
+/* PDF embebido */
+object {
+  border: 2px solid var(--border-8bit);
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--lila-suave), 0 0 15px var(--naranja-atardecer);
+}
+
 
