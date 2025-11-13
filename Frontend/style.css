@@ -117,6 +117,15 @@ object {
   margin-bottom: 1rem;
 }
 
+.media .image img.is-rounded {
+  border-radius: 50%;
+  border: 2px solid var(--amarillo-sol);
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+}
+
+
 
 
 
