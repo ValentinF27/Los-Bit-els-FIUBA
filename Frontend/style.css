@@ -21,7 +21,7 @@ body {
   overflow-x: hidden;
 
   /* Fondo animado City Pop */
-  background: linear-gradient(-45deg, #5e4fa2, #1f2c7f, #045344, #bd7106);
+  background: linear-gradient(-45deg, #5e4fa2, #1f2c7f, #042953, #a806bd);
   background-size: 800% 800%;
   animation: gradientShift 20s ease infinite;
 }
@@ -87,6 +87,7 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   50% { box-shadow: 0 0 20px var(--naranja-atardecer); }
   100% { box-shadow: 0 0 10px var(--lila-suave); }
 }
+
 
 
 
