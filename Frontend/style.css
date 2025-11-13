@@ -82,5 +82,23 @@ audio {
   border: 2px solid var(--amarillo-sol);
 }
 
+/* Botones */
+.button {
+  border-radius: 6px;
+  border: 2px solid var(--amarillo-sol);
+  background-color: rgba(255,255,255,0.05);
+  color: var(--blanco);
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0 0 4px var(--lila-suave);
+  transition: all 0.25s ease;
+  margin-right: 0.5rem;
+}
+
+.button:hover {
+  background-color: var(--naranja-atardecer);
+  color: var(--turquesa);
+  box-shadow: 0 0 12px var(--naranja-atardecer), 0 0 20px var(--lila-suave);
+  transform: translateY(-3px);
+}
 
 
