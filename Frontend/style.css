@@ -12,3 +12,15 @@
 
 /* TIPOGRAFÍA RETRO (8 BITS) */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ESTILO GENERAL */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--blanco);
+  line-height: 1.5;
+  overflow-x: hidden;
+
+  background: linear-gradient(-45deg, #5e4fa2, #1f2c7f, #042953, #a806bd);
+  background-size: 800% 800%;
+  animation: gradientShift 20s ease infinite;
+}
