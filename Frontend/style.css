@@ -10,12 +10,19 @@
   --border-8bit: #ffb347;
 }
 
-/* TIPOGRAFÍA RETRO (8 BITS) */
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@font-face {
+  src: url(./Fonts/Jersey10-Regular.ttf);
+  font-family: Jersey10-Regular;
+}
+
+@font-face {
+  src: url(./Fonts/Micro5-Regular.ttf);
+  font-family: Micro5-Regular;
+}
 
 /* ESTILO GENERAL */
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Jersey10-Regular, Micro5-Regular;
   color: var(--blanco);
   line-height: 1.5;
   overflow-x: hidden;
