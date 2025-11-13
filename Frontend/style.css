@@ -125,6 +125,13 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   image-rendering: pixelated; /* toque 8-bit sutil */
 }
 
+/* ESTADÍSTICAS */
+.columns .column p.title {
+  color: var(--amarillo-sol);
+  text-shadow: 0 0 8px var(--lila-suave);
+}
+
+
 
 
 
