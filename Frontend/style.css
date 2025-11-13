@@ -64,5 +64,13 @@ h1.title, h2.subtitle, h3.title, p, strong {
   position: relative;
 }
 
+/* Imagen de partitura */
+.box .image img {
+  border: 1px solid var(--border-8bit);
+  image-rendering: pixelated;
+  border-radius: 6px;
+  max-width: 100%;
+  height: auto;
+}
 
 
