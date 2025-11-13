@@ -130,6 +130,22 @@ object {
   font-size: 1rem;
 }
 
+/* Formularios */
+form .input,
+form .textarea,
+form .select select {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid var(--lila-suave);
+  color: var(--blanco);
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 6px;
+}
+
+form .button.is-success {
+  margin-top: 0.5rem;
+}
+
+
 
 
 
