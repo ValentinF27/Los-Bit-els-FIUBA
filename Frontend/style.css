@@ -176,6 +176,13 @@ form .button.is-success {
   text-shadow: 0 0 4px var(--lila-suave);
 }
 
+/* Hover: resaltar estrellas al pasar el mouse */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: var(--naranja-atardecer);
+  text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
+  transform: translateY(-2px);
+}
 
 
 
