@@ -168,6 +168,14 @@ form .button.is-success {
   display: none;
 }
 
+/* Estilo de las estrellas */
+.star-rating label {
+  color: rgba(255,255,255,0.3); /* Estrella vacía */
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-shadow: 0 0 4px var(--lila-suave);
+}
+
 
 
 
