@@ -88,6 +88,17 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   100% { box-shadow: 0 0 10px var(--lila-suave); }
 }
 
+/* BOTONES */
+.button {
+  border-radius: 6px;
+  border: 2px solid var(--amarillo-sol);
+  background-color: rgba(255,255,255,0.05);
+  color: var(--blanco);
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 0 0 4px var(--lila-suave);
+  transition: all 0.25s ease;
+}
+
 
 
 
