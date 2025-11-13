@@ -81,6 +81,12 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   z-index: 10; 
 }
 
+/* Animación para la foto de perfil */
+@keyframes glowProfile {
+  0% { box-shadow: 0 0 10px var(--lila-suave); }
+  50% { box-shadow: 0 0 20px var(--naranja-atardecer); }
+  100% { box-shadow: 0 0 10px var(--lila-suave); }
+}
 
 
 
