@@ -139,6 +139,12 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   border-top: 1px solid var(--border-8bit);
 }
 
+.card-footer-item:hover {
+  background-color: var(--naranja-atardecer);
+  color: var(--turquesa);
+}
+
+
 
 
 
