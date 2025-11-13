@@ -106,6 +106,15 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   transform: translateY(-3px);
 }
 
+/* TARJETAS DE PARTITURAS */
+.card {
+  background: var(--gris-transparente);
+  border: 2px solid var(--border-8bit);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
 
 
 
