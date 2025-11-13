@@ -1,4 +1,4 @@
-/* VARIABLES DE COLOR */
+/* Variables color */
 :root {
   --azul-cielo: #5da6f2;
   --turquesa: #48c9b0;
@@ -10,6 +10,7 @@
   --border-8bit: #ffb347;
 }
 
+/* Se importan Fuentes */
 @font-face {
   src: url(./Fonts/Jersey10-Regular.ttf);
   font-family: Jersey10-Regular;
@@ -20,7 +21,7 @@
   font-family: Micro5-Regular;
 }
 
-/* ESTILO GENERAL */
+/* Estilo general */
 body {
   font-family: Jersey10-Regular, Micro5-Regular;
   font-size: 1.5rem;
@@ -43,12 +44,12 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* TÍTULOS Y TEXTOS */
+/* Títulos y texto */
 h1.title, h2.subtitle, h3.title, p, strong {
   color: var(--blanco);
 }
 
-/* NAVBAR */
+/* Navbar */
 .navbar {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(8px);
@@ -60,7 +61,7 @@ h1.title, h2.subtitle, h3.title, p, strong {
   text-shadow: 0 0 6px var(--lila-suave), 0 0 10px var(--naranja-atardecer);
 }
 
-/* CAJAS (INFO, PDF, RESEÑAS) */
+/* Cajas (Info, PDF, Reseñas) */
 .box {
   background: var(--gris-transparente);
   border: 2px solid var(--lila-suave);
@@ -155,7 +156,7 @@ form .button.is-success {
   }
 }
 
-/* CALIFICACIÓN CON ESTRELLAS 8-BIT */
+/* Estrellas (reseñas) */
 
 /* Contenedor de estrellas */
 .star-rating {
