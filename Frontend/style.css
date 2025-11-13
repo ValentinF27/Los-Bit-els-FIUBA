@@ -145,6 +145,13 @@ form .button.is-success {
   margin-top: 0.5rem;
 }
 
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .columns {
+    flex-direction: column;
+  }
+}
+
 
 
 
