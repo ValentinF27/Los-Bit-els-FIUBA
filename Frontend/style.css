@@ -163,6 +163,10 @@ form .button.is-success {
   margin-top: 0.5rem;
 }
 
+/* Ocultar los inputs */
+.star-rating input {
+  display: none;
+}
 
 
 
