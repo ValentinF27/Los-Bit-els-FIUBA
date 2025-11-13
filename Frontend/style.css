@@ -1,0 +1,11 @@
+/* VARIABLES DE COLOR */
+:root {
+  --azul-cielo: #5da6f2;
+  --turquesa: #48c9b0;
+  --naranja-atardecer: #bd7106;
+  --lila-suave: #b399ff;
+  --amarillo-sol: #fffacd;
+  --blanco: #ffffff;
+  --gris-transparente: rgba(255, 255, 255, 0.07);
+  --border-8bit: #ffb347;
+}
