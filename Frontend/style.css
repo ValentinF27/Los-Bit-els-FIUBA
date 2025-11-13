@@ -152,6 +152,16 @@ form .button.is-success {
   }
 }
 
+/* CALIFICACIÓN CON ESTRELLAS 8-BIT */
+
+/* Contenedor de estrellas */
+.star-rating {
+  direction: rtl; 
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
 
 
 
