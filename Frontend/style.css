@@ -125,6 +125,10 @@ object {
   object-fit: cover;
 }
 
+.has-text-warning {
+  color: var(--naranja-atardecer);
+  font-size: 1rem;
+}
 
 
 
