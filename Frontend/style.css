@@ -2,7 +2,7 @@
 :root {
   --azul-cielo: #5da6f2;
   --turquesa: #48c9b0;
-  --naranja: #bd7106;
+  --naranja-atardecer: #bd7106;
   --lila-suave: #b399ff;
   --amarillo-sol: #fffacd;
   --blanco: #ffffff;
@@ -65,6 +65,22 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   position: relative;
   text-align: center;
 }
+
+/* Foto de perfil circular y flotando sobre la caja */
+.image img.is-rounded {
+  border-radius: 50%; /* círculo perfecto */
+  border: 3px solid var(--amarillo-sol); /* borde amarillo estilo city pop */
+  width: 128px;  
+  height: 128px; 
+  object-fit: cover; 
+  animation: glowProfile 2.5s ease-in-out infinite alternate;
+
+  /* flotando */
+  position: relative;
+  top: -20px; /* ajusta según cuánto queres que suba la foto de perfil */
+  z-index: 10; 
+}
+
 
 
 
