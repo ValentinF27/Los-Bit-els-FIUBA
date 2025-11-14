@@ -71,7 +71,7 @@ h1.title, h2.subtitle, h3.title, p, strong {
   position: relative;
 }
 
-h1,h2,p {
+.sheet_info {
    align-items: center;          /* Vertically center the icon and text */
    margin-bottom: 10px;          /* Space below the heading */
    line-height: 1.5;    /* Space below the heading */
@@ -225,6 +225,4 @@ form .button.is-success {
   color: var(--naranja-atardecer);
   text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
 }
-
-
 
