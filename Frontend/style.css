@@ -47,13 +47,13 @@
 }
 
 /* NAVBAR */
-.navbar {
+.user-page .navbar {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(8px);
   border-bottom: 2px solid var(--lila-suave);
 }
 
-.navbar-item h1 {
+.user-page .navbar-item h1 {
   font-family: 'Orbitron', sans-serif;
   font-weight: bold;
   color: var(--blanco);
@@ -148,6 +148,7 @@
   background-color: var(--naranja-atardecer);
   color: var(--turquesa);
 }
+
 
 
 
