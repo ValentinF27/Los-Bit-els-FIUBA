@@ -61,7 +61,7 @@
 }
 
 /* PERFIL DE USUARIO */
-.box {
+.user-page .box {
   background: var(--gris-transparente);
   border: 2px solid var(--lila-suave);
   border-radius: 12px;
@@ -72,7 +72,7 @@
 }
 
 /* Foto de perfil circular y flotando sobre la caja */
-.image img.is-rounded {
+.user-page .image img.is-rounded {
   border-radius: 50%; /* círculo perfecto */
   border: 3px solid var(--amarillo-sol); /* borde amarillo estilo city pop */
   width: 128px;  
@@ -94,7 +94,7 @@
 }
 
 /* BOTONES */
-.button {
+.user-page .button {
   border-radius: 6px;
   border: 2px solid var(--amarillo-sol);
   background-color: rgba(255,255,255,0.05);
@@ -104,7 +104,7 @@
   transition: all 0.25s ease;
 }
 
-.button:hover {
+.user-page .button:hover {
   background-color: var(--naranja-atardecer);
   color: var(--turquesa);
   box-shadow: 0 0 12px var(--naranja-atardecer), 0 0 20px var(--lila-suave);
@@ -112,7 +112,7 @@
 }
 
 /* TARJETAS DE PARTITURAS */
-.card {
+.user-page .card {
   background: var(--gris-transparente);
   border: 2px solid var(--border-8bit);
   border-radius: 10px;
@@ -120,34 +120,35 @@
   position: relative;
 }
 
-.card:hover {
+.user-page .card:hover {
   transform: scale(1.05);
   box-shadow: 0 0 15px var(--lila-suave), 0 0 25px var(--naranja-atardecer);
 }
 
-.card-image img {
+.user-page .card-image img {
   border: 1px solid var(--border-8bit);
   image-rendering: pixelated; /* toque 8-bit sutil */
 }
 
 /* ESTADÍSTICAS */
-.columns .column p.title {
+.user-page .columns .column p.title {
   color: var(--amarillo-sol);
   text-shadow: 0 0 8px var(--lila-suave);
 }
 
 /* CARD FOOTER */
-.card-footer-item {
+.user-page .card-footer-item {
   background: rgba(255,255,255,0.05);
   color: var(--lila-suave);
   font-family: 'Press Start 2P', cursive;
   border-top: 1px solid var(--border-8bit);
 }
 
-.card-footer-item:hover {
+.user-page .card-footer-item:hover {
   background-color: var(--naranja-atardecer);
   color: var(--turquesa);
 }
+
 
 
 
