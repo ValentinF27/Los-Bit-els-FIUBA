@@ -36,7 +36,12 @@
 }
 
 /* TÍTULOS Y TEXTOS */
-h2.title, h3.title, .title.is-4, .subtitle, p, strong {
+.user-page h2.title,
+.user-page h3.title,
+.user-page .title.is-4,
+.user-page .subtitle,
+.user-page p,
+.user-page strong {
   font-family: 'Press Start 2P', cursive;
   color: var(--blanco);
 }
@@ -143,6 +148,7 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   background-color: var(--naranja-atardecer);
   color: var(--turquesa);
 }
+
 
 
 
