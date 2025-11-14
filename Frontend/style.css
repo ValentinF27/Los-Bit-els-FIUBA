@@ -71,6 +71,23 @@ h1.title, h2.subtitle, h3.title, p, strong {
   position: relative;
 }
 
+h1,h2,p {
+   align-items: center;          /* Vertically center the icon and text */
+   margin-bottom: 10px;          /* Space below the heading */
+   line-height: 1.5;    /* Space below the heading */
+}
+
+.sheet_icon {
+   width: 28px;                  /* Set icon size */
+   height: auto;                 /* Maintain aspect ratio */
+   margin-right: 10px;           /* Space between icon and text */
+   vertical-align: middle;       /* Vertically align the icon with text */
+   margin-top: 2px;              /* Adjust the vertical position of the icon */
+   transition: all 0.3s ease;  
+}
+
+
+
 /* Imagen de partitura */
 .box .image img {
   border: 1px solid var(--border-8bit);
