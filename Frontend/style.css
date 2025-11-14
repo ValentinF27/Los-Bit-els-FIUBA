@@ -86,7 +86,25 @@ h1,h2,p {
    transition: all 0.3s ease;  
 }
 
+/* Efecto icono se agranda */
+.sheet_icon:hover {
+   transform: scale(1.2);
+   transition: all 0.3s ease;
+}
 
+/* Efecto icono se agita */
+.sheet_icon:active {
+   animation: shake 0.5s ease-in-out;
+}
+
+/* Animación para agitar elemento */
+@keyframes shake {
+   0% { transform: translateX(0); }
+   25% { transform: translateX(-5px); }
+   50% { transform: translateX(5px); }
+   75% { transform: translateX(-5px); }
+   100% { transform: translateX(0); }
+}
 
 /* Imagen de partitura */
 .box .image img {
