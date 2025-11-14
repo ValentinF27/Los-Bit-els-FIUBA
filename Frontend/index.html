@@ -14,100 +14,182 @@
   </head>
   <body>
 
-  <!-- Navbar -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <!-- Link a Home -->
-      <a class="navbar-item" href="./index.html">
-        <!-- Navbar Título -->
-        <h1><strong>BIT-ELS</strong></h1>
-        <!-- Navbar logo -->
-        <img src="./Imagenes/logo.png"
-        alt="Logo del sitio web (notas musicales)">
-      </a>
-
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item">
-          Home
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- Link a Home -->
+        <a class="navbar-item" href="./index.html">
+          <!-- Navbar Título -->
+          <h1><strong>BIT-ELS</strong></h1>
+          <!-- Navbar logo -->
+          <img src="./Imagenes/logo.png"
+          alt="Logo del sitio web (notas musicales)">
         </a>
 
-        <a class="navbar-item">
-          Documentation
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
+      </div>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item">
+            Home
           </a>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
+          <a class="navbar-item">
+            Documentation
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
             </a>
-            <a class="navbar-item is-selected">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
+              </a>
+              <a class="navbar-item is-selected">
+                Jobs
+              </a>
+              <a class="navbar-item">
+                Contact
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <!-- Lado izquierdo -->
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle is-5"><strong>123</strong> posts</p>
+          </div>
+          <div class="level-item">
+            <div class="field has-addons">
+              <p class="control">
+                <input class="input" type="text" placeholder="Find a post" />
+              </p>
+              <p class="control">
+                <button class="button">Search</button>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lado derecho -->
+        <div class="level-right">
+          <p class="level-item"><strong>All</strong></p>
+          <p class="level-item"><a>Published</a></p>
+          <p class="level-item"><a>Drafts</a></p>
+          <p class="level-item"><a>Deleted</a></p>
+          <p class="level-item"><a class="button is-success">New</a></p>
+        </div>
+
+        <!-- Sign up / Log in -->
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Barra de búsqueda -->
-      <!-- Lado izquierdo -->
-      <div class="level-left">
-        <div class="level-item">
-          <p class="subtitle is-5"><strong>123</strong> posts</p>
-        </div>
-        <div class="level-item">
-          <div class="field has-addons">
-            <p class="control">
-              <input class="input" type="text" placeholder="Find a post" />
-            </p>
-            <p class="control">
-              <button class="button">Search</button>
-            </p>
+    </nav>
+      <!-- LISTA DE PARTITURAS DESTACADAS -->
+    <div class="section">
+      <div class="container">
+        <h2 class="title is-3 mb-5">Partituras destacadas</h2>
+          
+        <div class="columns is-multiline">
+          <!-- Tarjeta 1 -->
+          <div class="column is-one-quarter">
+            <div class="card post-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="./Imagenes/partitura1.png" alt="partitura" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Don't Stop Me Now</p>
+                <p class="subtitle is-6">Piano - Queen</p>
+              </div>
+              <footer class="card-footer">
+                <a href="partitura.html" class="card-footer-item">Ver</a>
+              </footer>
+              </div>
+            </div>
+          
+            <!-- Tarjeta 2 -->
+          <div class="column is-one-quarter">
+            <div class="card post-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="./Imagenes/Imagine-John_Lennon.png" alt="partitura" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Imagine</p>
+                <p class="subtitle is-6">Piano - John Lennon</p>
+              </div>
+              <footer class="card-footer">
+                <a href="partitura.html" class="card-footer-item">Ver</a>
+              </footer>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Lado derecho -->
-      <div class="level-right">
-        <p class="level-item"><strong>All</strong></p>
-        <p class="level-item"><a>Published</a></p>
-        <p class="level-item"><a>Drafts</a></p>
-        <p class="level-item"><a>Deleted</a></p>
-        <p class="level-item"><a class="button is-success">New</a></p>
-      </div>
 
-      <!-- Sign up / Log in -->
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
+          <!-- Tarjeta 3 -->
+          <div class="column is-one-quarter">
+            <div class="card post-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="./Imagenes/partitura3.png" alt="partitura" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Bohemian Rhapsody</p>
+                <p class="subtitle is-6">Piano - Queen</p>
+              </div>
+              <footer class="card-footer">
+                <a href="partitura.html" class="card-footer-item">Ver</a>
+              </footer>
+            </div>
+          </div>
+
+
+            <!-- Tarjeta 4 -->
+          <div class="column is-one-quarter">
+            <div class="card post-card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="./Imagenes/partitura1.png" alt="partitura" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-5">Let It Be</p>
+                <p class="subtitle is-6">Piano - Beatles</p>
+              </div>
+              <footer class="card-footer">
+                <a href="partitura.html" class="card-footer-item">Ver</a>
+              </footer>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </nav>
   </body>
 </html>
