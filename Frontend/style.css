@@ -14,7 +14,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* ESTILO GENERAL */
-body {
+.user-page body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: var(--blanco);
   line-height: 1.5;
@@ -143,6 +143,7 @@ h2.title, h3.title, .title.is-4, .subtitle, p, strong {
   background-color: var(--naranja-atardecer);
   color: var(--turquesa);
 }
+
 
 
 
