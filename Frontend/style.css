@@ -72,18 +72,18 @@ h1.title, h2.subtitle, h3.title, p, strong {
 }
 
 .sheet_info {
-   align-items: center;          /* Vertically center the icon and text */
-   margin-bottom: 10px;          /* Space below the heading */
-   line-height: 1.5;    /* Space below the heading */
+   align-items: center;
+   margin-bottom: 10px;
+   line-height: 1.5;
 }
 
 .sheet_icon {
-   width: 28px;                  /* Set icon size */
-   height: auto;                 /* Maintain aspect ratio */
-   margin-right: 10px;           /* Space between icon and text */
-   vertical-align: middle;       /* Vertically align the icon with text */
-   margin-top: 2px;              /* Adjust the vertical position of the icon */
-   transition: all 0.3s ease;  
+   width: 28px;
+   height: auto;
+   margin-right: 10px;
+   vertical-align: middle;
+   margin-top: 2px;
+   transition: all 0.3s ease;
 }
 
 /* Efecto icono se agranda */
@@ -206,7 +206,7 @@ form .button.is-success {
 
 /* Estilo de las estrellas */
 .star-rating label {
-  color: rgba(255,255,255,0.3); /* Estrella vacía */
+  color: rgba(255,255,255,0.3);
   cursor: pointer;
   transition: all 0.2s ease;
   text-shadow: 0 0 4px var(--lila-suave);
