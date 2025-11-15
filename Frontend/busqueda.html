@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Tab_logo -->
+    <link rel="icon" type="image/png" href="./Imagenes/tab_logo.png">
+    <!-- Tab_nombre -->
+    <title>Home | Bit-els</title>
+    <!-- import bulma.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <!-- import nuestro css -->
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- Link a Home -->
+        <a class="navbar-item" href="./index.html">
+          <!-- Navbar Título -->
+          <h1><strong>BIT-ELS</strong></h1>
+          <!-- Navbar logo -->
+          <img src="./Imagenes/logo.png"
+          alt="Logo del sitio web (notas musicales)">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <!--bloque central navbar-->
+      <div id="navbarBasicExample" class="navbar-menu">
+        
+        
+        <div class="navbar-start is-flex is-justify-content-center is-align-items-center" style="width: 100%;">
+          
+          <!--cantidad posts-->
+          <div class="level-item">
+            <p class="subtitle is-5"><strong>123</strong> partituras</p>
+          </div>
+
+          <!--barra de busqueda-->
+          <div class="level-item">
+            <div class="field has-addons">
+              <p class="control">
+                <input class="input" type="text" placeholder="Find a post" />
+              </p>
+              <p class="control">
+                <button class="button">Search</button>
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Sign up / Log in -->
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+  </body>
+</html>
