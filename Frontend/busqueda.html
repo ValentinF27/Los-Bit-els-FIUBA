@@ -26,7 +26,7 @@
           alt="Logo del sitio web (notas musicales)">
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="menuNavbar">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -35,7 +35,7 @@
       </div>
 
       <!--bloque central navbar-->
-      <div class="navbar-menu">
+      <div id="menuNavbar" class="navbar-menu">
         
         <!-- Sign up / Log in -->
         <div class="navbar-end">
@@ -66,11 +66,104 @@
             <input class="input" type="text">
           </div>
           <div class="control">
-            <button class="button is-primary">Buscar</button>
+            <button id="botonBusqueda" class="button is-primary">Buscar</button>
           </div>
+        </div>
+      </div>
+
+      <!-- Resultados de búsqueda -->
+      <div class="container">
+        <h2 class="title is-9">Resultados de búsqueda</h2>
+
+        <div id="resultadosBusqueda" class="box mt-5">
+
+          <!-- Resultado 1 -->
+          <article class="media mb-4">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="./Imagenes/Dont_Stop_Me_Now-Queen.png" alt="Don't Stop Me Now">
+              </p>
+            </figure>
+
+            <div class="media-content">
+              <p>
+                <strong>Don't Stop Me Now</strong><br>
+                <small>Piano - Queen</small>
+              </p>
+            </div>
+
+            <div class="media-right">
+              <a href="partitura.html" class="button is-small is-primary">Ver</a>
+            </div>
+          </article>
+
+
+          <!-- Resultado 2 -->
+          <article class="media mb-4">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="./Imagenes/Imagine-John_Lennon.png" alt="Imagine">
+              </p>
+            </figure>
+
+            <div class="media-content">
+              <p>
+                <strong>Imagine</strong><br>
+                <small>Piano - John Lennon</small>
+              </p>
+            </div>
+
+            <div class="media-right">
+              <a href="partitura.html" class="button is-small is-primary">Ver</a>
+            </div>
+          </article>
+
+
+          <!-- Resultado 3 -->
+          <article class="media mb-4">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="./Imagenes/Queen-Bohemiam_Rhapsody.png" alt="Bohemian Rhapsody">
+              </p>
+            </figure>
+
+            <div class="media-content">
+              <p>
+                <strong>Bohemian Rhapsody</strong><br>
+                <small>Piano - Queen</small>
+              </p>
+            </div>
+
+            <div class="media-right">
+              <a href="partitura.html" class="button is-small is-primary">Ver</a>
+            </div>
+          </article>
+
+
+          <!-- Resultado 4 -->
+          <article class="media mb-4">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="./Imagenes/Let_it_be-Beatles.png" alt="Let It Be">
+              </p>
+            </figure>
+
+            <div class="media-content">
+              <p>
+                <strong>Let It Be</strong><br>
+                <small>Piano - Beatles</small>
+              </p>
+            </div>
+
+            <div class="media-right">
+              <a href="partitura.html" class="button is-small is-primary">Ver</a>
+            </div>
+          </article>
+          
         </div>
       </div>
     </section>
     
+    <script src="./navbar.js"></script>
   </body>
 </html>
