@@ -12,68 +12,55 @@
     <!-- import nuestro css -->
     <link rel="stylesheet" href="./style.css">
   </head>
-  <body>
+
+  <!-- SOLO ESTE BODY, nada más -->
+  <body class="user-page">
+
     <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <!-- Link a Home -->
         <a class="navbar-item" href="./index.html">
-          <!-- Navbar Título -->
           <h1><strong>BIT-ELS</strong></h1>
-          <!-- Navbar logo -->
-          <img src="./Imagenes/logo.png"
-          alt="Logo del sitio web (notas musicales)">
+          <img src="./Imagenes/logo.png" alt="Logo del sitio web (notas musicales)">
         </a>
-
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-
-        <!-- Log out -->
       </div>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Log out</strong>
-              </a>
-            </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Log out</strong>
+            </a>
           </div>
         </div>
       </div>
     </nav>
 
-     <!-- Sección de Usuario -->
+    <!-- Sección de Usuario -->
     <section class="section">
       <div class="container">
 
-        <!-- Información del usuario -->
+        <!-- Usuario -->
         <div class="box has-text-centered">
-          <h2 class="title is-3 mt-3">OscarRock123</h2>
+          <h2 class="title is-3 mt-3" id="username">Cargando...</h2>
           <figure class="image is-128x128 is-inline-block">
-            <img class="is-rounded" src="./Imagenes/usuario_avatar.png" alt="Foto de perfil del usuario">
+            <img class="is-rounded" id="avatar" src="" alt="Foto de perfil del usuario">
           </figure>
-          <p>
-            Apasionado de todo lo que contenga guitarra, en especial si proviene de los 70s u 80s.
-            Mi meta es compartir partituras originales y versiones adaptadas para diferentes niveles.
-          </p>
+          <p id="description"></p>
         </div>
 
-        <!-- Información adicional del usuario -->
+        <!-- Información adicional -->
         <div class="box mt-5">
           <h4 class="title is-5">Información adicional</h4>
-          <p><strong>Nombre:</strong> Oscar Perez</p>
-          <p><strong>Mail:</strong> oscarperez@ejemplo.com</p>
-          <p><strong>Teléfono:</strong> +54 9 11 1234-5678</p>
-          <p><strong>Ubicación:</strong> CABA, Argentina</p>
-          <p><strong>Instrumentos:</strong> Guitarra/Voz</p>
-          <p><strong>Géneros preferidos:</strong> Rock/Punk</p>
+          <p><strong>Nombre:</strong> <span id="name"></span></p>
+          <p><strong>Mail:</strong> <span id="email"></span></p>
+          <p><strong>Teléfono:</strong> <span id="phone"></span></p>
+          <p><strong>Ubicación:</strong> <span id="location"></span></p>
+          <p><strong>Instrumentos:</strong> <span id="instruments"></span></p>
+          <p><strong>Géneros preferidos:</strong> <span id="genres"></span></p>
         </div>
 
- <!-- Partituras subidas -->
+        <!-- Tarjetas de partituras -->
         <h3 class="title is-4 mt-6">Partituras subidas</h3>
 
         <div class="columns is-multiline">
@@ -91,8 +78,6 @@
               </div>
               <footer class="card-footer">
                 <a href="#" class="card-footer-item">Ver</a>
-                <a href="#" class="card-footer-item">Editar</a>
-                <a href="#" class="card-footer-item">Eliminar</a>
               </footer>
             </div>
           </div>
@@ -111,8 +96,6 @@
               </div>
               <footer class="card-footer">
                 <a href="#" class="card-footer-item">Ver</a>
-                <a href="#" class="card-footer-item">Editar</a>
-                <a href="#" class="card-footer-item">Eliminar</a>
               </footer>
             </div>
           </div>
@@ -131,13 +114,11 @@
               </div>
               <footer class="card-footer">
                 <a href="#" class="card-footer-item">Ver</a>
-                <a href="#" class="card-footer-item">Editar</a>
-                <a href="#" class="card-footer-item">Eliminar</a>
               </footer>
             </div>
           </div>
 
-        <!-- Botón para subir nueva partitura -->
+          <!-- Botón para subir nueva partitura -->
           <div class="column is-one-quarter">
             <div class="card has-text-centered p-6">
               <a class="button is-success is-medium">
@@ -146,10 +127,12 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
-     <body class="user-page">
-       <!-- Script JS -->
+
+    <!-- Script JS -->
     <script src="./main.js"></script>
+
   </body>
 </html>
