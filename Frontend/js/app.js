@@ -2,7 +2,7 @@
 async function mostrarUsuario() {
   try {
     // Pedimos el usuario 1.
-    const response = await fetch("http://localhost:3000/usuarios/1");
+    const response = await fetch("http://localhost:3000/api/usuarios/1");
     const usuario = await response.json();
 
     // Llenamos los elementos del HTML.
