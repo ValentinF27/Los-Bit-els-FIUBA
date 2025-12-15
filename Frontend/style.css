@@ -1,4 +1,4 @@
-/* Variables color */
+/* VARIABLES DE COLOR */
 :root {
   --azul-cielo: #5da6f2;
   --turquesa: #48c9b0;
@@ -10,26 +10,17 @@
   --border-8bit: #ffb347;
 }
 
-/* Se importan Fuentes */
-@font-face {
-  src: url(./Fonts/Jersey10-Regular.ttf);
-  font-family: Jersey10-Regular;
-}
+/* TIPOGRAFÍA RETRO (8 BITS) */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-@font-face {
-  src: url(./Fonts/Micro5-Regular.ttf);
-  font-family: Micro5-Regular;
-}
-
-/* Estilo general */
-body {
-  font-family: Jersey10-Regular, Micro5-Regular;
-  font-size: 1.5rem;
-  letter-spacing: 0.1rem;
+/* ESTILO GENERAL */
+.user-page body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: var(--blanco);
   line-height: 1.5;
   overflow-x: hidden;
 
+  /* Fondo animado City Pop */
   background: linear-gradient(-45deg, #5e4fa2, #1f2c7f, #042953, #a806bd);
   background-size: 800% 800%;
   animation: gradientShift 20s ease infinite;
@@ -44,153 +35,128 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Títulos y texto */
-h1.title, h2.subtitle, h3.title, p, strong {
+/* TÍTULOS Y TEXTOS */
+.user-page h2.title,
+.user-page h3.title,
+.user-page .title.is-4,
+.user-page .subtitle,
+.user-page p,
+.user-page strong {
+  font-family: 'Press Start 2P', cursive;
   color: var(--blanco);
 }
 
-/* Navbar */
-.navbar {
+/* NAVBAR */
+.user-page .navbar {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(8px);
   border-bottom: 2px solid var(--lila-suave);
 }
 
-.navbar-item h1 {
+.user-page .navbar-item h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
   color: var(--blanco);
   text-shadow: 0 0 6px var(--lila-suave), 0 0 10px var(--naranja-atardecer);
 }
 
-/* Cajas (Info, PDF, Reseñas) */
-.box {
+/* PERFIL DE USUARIO */
+.user-page .box {
   background: var(--gris-transparente);
   border: 2px solid var(--lila-suave);
   border-radius: 12px;
   box-shadow: 0 0 12px var(--lila-suave), 0 0 20px var(--naranja-atardecer);
   padding: 2rem;
   position: relative;
+  text-align: center;
 }
 
-/* Imagen de partitura */
-.box .image img {
-  border: 1px solid var(--border-8bit);
-  image-rendering: pixelated;
-  border-radius: 6px;
-  max-width: 100%;
-  height: auto;
+/* Foto de perfil circular y flotando sobre la caja */
+.user-page .image img.is-rounded {
+  border-radius: 50%; /* círculo perfecto */
+  border: 3px solid var(--amarillo-sol); /* borde amarillo estilo city pop */
+  width: 128px;  
+  height: 128px; 
+  object-fit: cover; 
+  animation: glowProfile 2.5s ease-in-out infinite alternate;
+
+  /* flotando */
+  position: relative;
+  top: -20px; /* ajusta según cuánto queres que suba la foto de perfil */
+  z-index: 10; 
 }
 
-/* Audio */
-audio {
-  width: 100%;
-  margin-top: 1rem;
-  outline: none;
-  border-radius: 6px;
-  border: 2px solid var(--amarillo-sol);
+/* Animación para la foto de perfil */
+@keyframes glowProfile {
+  0% { box-shadow: 0 0 10px var(--lila-suave); }
+  50% { box-shadow: 0 0 20px var(--naranja-atardecer); }
+  100% { box-shadow: 0 0 10px var(--lila-suave); }
 }
 
-/* Botones */
-.button {
+/* BOTONES */
+.user-page .button {
   border-radius: 6px;
   border: 2px solid var(--amarillo-sol);
   background-color: rgba(255,255,255,0.05);
   color: var(--blanco);
+  font-family: 'Press Start 2P', cursive;
   text-shadow: 0 0 4px var(--lila-suave);
   transition: all 0.25s ease;
-  margin-right: 0.5rem;
 }
 
-.button:hover {
+.user-page .button:hover {
   background-color: var(--naranja-atardecer);
   color: var(--turquesa);
   box-shadow: 0 0 12px var(--naranja-atardecer), 0 0 20px var(--lila-suave);
   transform: translateY(-3px);
 }
 
-/* PDF embebido */
-object {
+/* TARJETAS DE PARTITURAS */
+.user-page .card {
+  background: var(--gris-transparente);
   border: 2px solid var(--border-8bit);
-  border-radius: 6px;
-  box-shadow: 0 0 10px var(--lila-suave), 0 0 15px var(--naranja-atardecer);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
-/* Reseñas */
-.media {
+.user-page .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--lila-suave), 0 0 25px var(--naranja-atardecer);
+}
+
+.user-page .card-image img {
+  border: 1px solid var(--border-8bit);
+  image-rendering: pixelated; /* toque 8-bit sutil */
+}
+
+/* ESTADÍSTICAS */
+.user-page .columns .column p.title {
+  color: var(--amarillo-sol);
+  text-shadow: 0 0 8px var(--lila-suave);
+}
+
+/* CARD FOOTER */
+.user-page .card-footer-item {
   background: rgba(255,255,255,0.05);
-  border: 1px solid var(--lila-suave);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  color: var(--lila-suave);
+  font-family: 'Press Start 2P', cursive;
+  border-top: 1px solid var(--border-8bit);
 }
 
-.media .image img.is-rounded {
-  border-radius: 50%;
-  border: 2px solid var(--amarillo-sol);
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
+.user-page .card-footer-item:hover {
+  background-color: var(--naranja-atardecer);
+  color: var(--turquesa);
 }
 
-.has-text-warning {
-  color: var(--naranja-atardecer);
-}
 
-/* Formularios */
-form .input,
-form .textarea,
-form .select select {
-  background: rgba(255,255,255,0.05);
-  border: 2px solid var(--lila-suave);
-  color: var(--blanco);
-  border-radius: 6px;
-}
 
-form .button.is-success {
-  margin-top: 0.5rem;
-}
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .columns {
-    flex-direction: column;
-  }
-}
 
-/* Estrellas (reseñas) */
 
-/* Contenedor de estrellas */
-.star-rating {
-  direction: rtl; 
-  display: inline-block;
-  margin-top: 0.5rem;
-}
 
-/* Ocultar los inputs */
-.star-rating input {
-  display: none;
-}
 
-/* Estilo de las estrellas */
-.star-rating label {
-  color: rgba(255,255,255,0.3); /* Estrella vacía */
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-shadow: 0 0 4px var(--lila-suave);
-}
 
-/* Hover: resaltar estrellas al pasar el mouse */
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  color: var(--naranja-atardecer);
-  text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
-  transform: translateY(-2px);
-}
-
-/* Selección: estrellas llenas */
-.star-rating input:checked ~ label {
-  color: var(--naranja-atardecer);
-  text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
-}
 
 
 

@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { pool } from "./db.js";
+
+import usuarios from "./routes/usuarios.js";
 
 const app = express();
 app.use(express.json());
@@ -11,15 +12,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Backend funcionando" });
 });
 
-app.get("/usuarios", async (req, res) => {
-    try {
-        const result = await pool.query("SELECT * FROM users");
-        res.json(result.rows);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: "DB error" });
-    }
-});
+app.use('/api/usuarios', usuarios);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
