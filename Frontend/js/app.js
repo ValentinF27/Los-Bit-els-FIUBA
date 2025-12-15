@@ -10,10 +10,10 @@ async function mostrarUsuario() {
     document.getElementById("name").textContent = usuario.nom_completo || "";
     document.getElementById("email").textContent = usuario.email || "";
 
-    document.getElementById("phone").textContent = "";
-    document.getElementById("location").textContent = "";
-    document.getElementById("instruments").textContent = "";
-    document.getElementById("genres").textContent = "";
+    document.getElementById("phone").textContent = usuario.telefono || "";
+    document.getElementById("location").textContent = usuario.ubicacion || "";
+    document.getElementById("instruments").textContent = usuario.instrumento || "";
+    document.getElementById("genres").textContent = usuario.genero_fav || "";
 
   } catch (error) {
     console.error(error);
