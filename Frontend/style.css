@@ -1,4 +1,3 @@
-/* VARIABLES DE COLOR */
 /* Variables color */
 :root {
   --azul-cielo: #5da6f2;
@@ -226,5 +225,4 @@ form .button.is-success {
   color: var(--naranja-atardecer);
   text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
 }
-
 
