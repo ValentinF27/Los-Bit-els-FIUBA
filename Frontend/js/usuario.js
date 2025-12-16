@@ -1,11 +1,9 @@
+import { getUsuario } from "./api.js";
 // Función que obtiene el usuario y llena el HTML.
 async function mostrarUsuario(id) {
   try {
     // Pedimos usuario con id determinado.
-    const response = await fetch(`http://localhost:3000/api/usuarios/${id}`);
-    if (!response.ok) throw new Error(`Usuario no encontrado (HTTP ${response.status})`);
-
-    const usuario = await response.json();
+    const usuario = await getUsuario(id);
 
     // Llenamos los elementos del HTML.
     document.getElementById("username").textContent = usuario.nickname || "";
