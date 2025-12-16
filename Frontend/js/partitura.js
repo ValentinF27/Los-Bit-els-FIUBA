@@ -52,8 +52,8 @@ async function mostrarPartitura(id) {
               <div class="content">
                 <h4>${reseña.titulo || "Sin título"}</h4>
                 <p>
-                  <strong><a href="usuario.html?id=${reseña.usuario_id}">${reseña.nickname}</a></strong>
-                  <small>${reseña.email || ""}</small>
+                  <strong><a href="usuario.html?id=${reseña.usuario_id}">${reseña.usuario_nickname}</a></strong>
+                  <small>${reseña.usuario_email || ""}</small>
                   <small>· ${fecha}</small>
                   <br>
                   <span>${reseña.contenido}</span>
