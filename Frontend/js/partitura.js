@@ -1,6 +1,6 @@
 import { getPartitura } from "./api.js";
 
-// Función que obtiene la partitura y llena el HTML.
+// Función que obtiene la partitura y llena el HTML, incluyendo reseñas.
 async function mostrarPartitura(id) {
   try {
     // Pedimos partitura con id determinado.
@@ -9,7 +9,7 @@ async function mostrarPartitura(id) {
     // Nombre de la partitura.
     document.getElementById("sheet-name").textContent = partitura.nombre;
 
-    // Usuario: clickeable.
+    // Usuario que subió la partitura (clickeable).
     const uploaderLink = document.getElementById("sheet-user-link");
     uploaderLink.textContent = partitura.nickname;
     uploaderLink.href = `usuario.html?id=${partitura.usuario_id}`;
@@ -32,7 +32,55 @@ async function mostrarPartitura(id) {
     document.getElementById("sheet-pdf").data = partitura.pdf;
     document.getElementById("sheet-pdf-link").href = partitura.pdf;
 
-  } catch (error) {
+    // --- Reseñas ---
+    const reseñasContainer = document.getElementById("reseñas-container");
+    const form = reseñasContainer.querySelector("form");
+
+    // Limpiamos reseñas anteriores.
+    reseñasContainer.querySelectorAll(".review-post").forEach(el => el.remove());
+
+    if (partitura.reseñas && partitura.reseñas.length > 0) {
+      partitura.reseñas.forEach(reseña => {
+        const fecha = new Date(reseña.fecha_creacion).toLocaleDateString("es-ES");
+        const estrellas = "★".repeat(reseña.estrellas) + "☆".repeat(5 - reseña.estrellas);
+
+        // Construimos HTML de la reseña como template literal.
+        const reseñaHTML = `
+          <article class="media review-post">
+            <figure class="media-left"></figure>
+            <div class="media-content">
+              <div class="content">
+                <h4>${reseña.titulo || "Sin título"}</h4>
+                <p>
+                  <strong><a href="usuario.html?id=${reseña.usuario_id}">${reseña.nickname}</a></strong>
+                  <small>${reseña.email || ""}</small>
+                  <small>· ${fecha}</small>
+                  <br>
+                  <span>${reseña.contenido}</span>
+                </p>
+              </div>
+              <div class="has-text-warning">${estrellas}</div>
+            </div>
+          </article>
+        `;
+
+        // Creamos un contenedor temporal para convertir string en nodo.
+        const temp = document.createElement("div");
+        temp.innerHTML = reseñaHTML;
+        const reseñaNode = temp.firstElementChild;
+
+        // Insertamos antes del form para que aparezcan arriba.
+        form.insertAdjacentElement("beforebegin", reseñaNode);
+      });
+    // Si no hay reseñas.
+    } else {
+      const p = document.createElement("p");
+      p.className = "review-post";
+      p.textContent = "No hay reseñas todavía. ¡Sé el primero en dejar una!";
+      form.insertAdjacentElement("beforebegin", p);
+    }
+
+    } catch (error) {
     console.error(error);
     alert("No se pudo cargar la partitura");
   }
