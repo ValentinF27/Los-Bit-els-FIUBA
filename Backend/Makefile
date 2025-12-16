@@ -13,3 +13,6 @@ stop:
 
 deps:
 	npm install
+
+enter_db:
+	docker compose exec db psql -U postgres Bit-els
