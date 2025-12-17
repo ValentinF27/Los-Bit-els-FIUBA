@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Tab_logo -->
-    <link rel="icon" type="image/png" href="./Imagenes/tab_logo.png">
+    <link rel="icon" type="image/png" href="./iconos/tab_logo.png">
     <!-- Tab_nombre -->
     <title>Home | Bit-els</title>
     <!-- import bulma.css -->
@@ -14,16 +14,30 @@
   </head>
   <body>
 
-    <!-- Navbar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <!-- Link a Home -->
-        <a class="navbar-item" href="./index.html">
-          <!-- Navbar Título -->
-          <h1><strong>BIT-ELS</strong></h1>
-          <!-- Navbar logo -->
-          <img src="./Imagenes/logo.png"
-          alt="Logo del sitio web (notas musicales)">
+  <!-- Navbar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <!-- Link a Home -->
+      <a class="navbar-item" href="./index.html">
+        <!-- Navbar Título -->
+        <h1><strong>BIT-ELS</strong></h1>
+        <!-- Navbar logo -->
+        <img src="./iconos/logo.png"
+        alt="Logo del sitio web (notas musicales)">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -74,10 +88,20 @@
         </div>
       </div>
     </nav>
-      <!-- LISTA DE PARTITURAS DESTACADAS -->
+      <!-- LISTA DE PARTITURAS RECIENTES -->
     <div class="section">
       <div class="container">
-        <h2 class="title is-3 mb-5">Partituras destacadas</h2>
+        <div class="level mb-5">
+          <div class="level-left">
+            <h2 class="title is-3">Partituras recientes</h2>
+          </div>
+          <div class="level-right">
+            <a class="button is-small is-link is-light">Ver todas</a>
+          </div>
+        </div>
+
+        <p class="subtitle is-6">Explorá las ultimas partituras de la web</p>
+
           
         <div class="columns is-multiline">
           <!-- Tarjeta 1 -->
@@ -85,7 +109,7 @@
             <div class="card post-card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="./Imagenes/Dont_Stop_Me_Now-Queen.png" alt="portada cancion" />
+                  <img src="./media/imagenes/queen.jpg" alt="portada cancion" />
                 </figure>
               </div>
               <div class="card-content">
@@ -103,7 +127,7 @@
             <div class="card post-card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="./Imagenes/Imagine-John_Lennon.png" alt="portada cancion" />
+                  <img src="./media/imagenes/john_lennon.jpg" alt="portada cancion" />
                 </figure>
               </div>
               <div class="card-content">
@@ -122,7 +146,7 @@
             <div class="card post-card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="./Imagenes/Queen-Bohemiam_Rhapsody.png" alt="portada cancion" />
+                  <img src="./media/imagenes/queen.jpg" alt="portada cancion" />
                 </figure>
               </div>
               <div class="card-content">
@@ -141,7 +165,7 @@
             <div class="card post-card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="./Imagenes/Let_it_be-Beatles.png" alt="portada cancion" />
+                  <img src="./media/imagenes/beatles.jpg" alt="portada cancion" />
                 </figure>
               </div>
               <div class="card-content">
