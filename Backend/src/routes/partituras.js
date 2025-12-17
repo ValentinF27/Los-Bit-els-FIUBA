@@ -9,12 +9,15 @@ router.get("/:id", async (req, res) => {
 
     // Traemos la partitura con el nickname del usuario que la subió.
        const partituraResult = await pool.query(
-      `SELECT partituras.*, usuarios.nickname
-       FROM partituras
-       JOIN usuarios ON usuarios.id = partituras.usuario_id
-       WHERE partituras.id = $1`,
-      [id]
-    );
+        `SELECT p.*, u.nickname,
+                ROUND(COALESCE(AVG(r.estrellas),0),2) AS promedio_estrellas
+        FROM partituras p
+        JOIN usuarios u ON u.id = p.usuario_id
+        LEFT JOIN reseñas r ON r.partitura_id = p.id
+        WHERE p.id = $1
+        GROUP BY p.id, u.nickname`,
+        [id]
+      );
 
     // Si no existe, lanza mensaje de error.
     if (partituraResult.rows.length === 0) {
