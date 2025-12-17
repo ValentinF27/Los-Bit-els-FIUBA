@@ -71,6 +71,41 @@ h1.title, h2.subtitle, h3.title, p, strong {
   position: relative;
 }
 
+.sheet_info {
+   align-items: center;
+   margin-bottom: 10px;
+   line-height: 1.5;
+}
+
+.sheet_icon {
+   width: 28px;
+   height: auto;
+   margin-right: 10px;
+   vertical-align: middle;
+   margin-top: 2px;
+   transition: all 0.3s ease;
+}
+
+/* Efecto icono se agranda */
+.sheet_icon:hover {
+   transform: scale(1.2);
+   transition: all 0.3s ease;
+}
+
+/* Efecto icono se agita */
+.sheet_icon:active {
+   animation: shake 0.5s ease-in-out;
+}
+
+/* Animación para agitar elemento */
+@keyframes shake {
+   0% { transform: translateX(0); }
+   25% { transform: translateX(-5px); }
+   50% { transform: translateX(5px); }
+   75% { transform: translateX(-5px); }
+   100% { transform: translateX(0); }
+}
+
 /* Imagen de partitura */
 .box .image img {
   border: 1px solid var(--border-8bit);
@@ -86,7 +121,6 @@ audio {
   margin-top: 1rem;
   outline: none;
   border-radius: 6px;
-  border: 2px solid var(--amarillo-sol);
 }
 
 /* Botones */
@@ -172,7 +206,7 @@ form .button.is-success {
 
 /* Estilo de las estrellas */
 .star-rating label {
-  color: rgba(255,255,255,0.3); /* Estrella vacía */
+  color: rgba(255,255,255,0.3);
   cursor: pointer;
   transition: all 0.2s ease;
   text-shadow: 0 0 4px var(--lila-suave);
@@ -191,6 +225,4 @@ form .button.is-success {
   color: var(--naranja-atardecer);
   text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
 }
-
-
 
