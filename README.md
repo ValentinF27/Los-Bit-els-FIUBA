@@ -110,14 +110,10 @@ Clonar el repositorio:
 git clone <git@github.com:ValentinF27/Los-Bit-els-FIUBA.git>
 
 
-# Como correr el Backend?
-```
+## Cómo correr el Backend
+
+```bash
 cd Backend
 make deps
 make run
-```
-# Como correr el Frontend?
-```
-cd Frontend
-http-server
-```
+
