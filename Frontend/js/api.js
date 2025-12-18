@@ -40,4 +40,17 @@ export async function enviarReseña({ partitura_id, titulo, contenido, estrellas
   return true;
 }
 
+// Elimina una reseña por id.
+export async function borrarReseña(reseña_id) {
+  const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+  if (!usuario) throw new Error("Usuario no logueado");
 
+  const res = await fetch(`http://localhost:3000/api/resenas/${reseña_id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ usuario_id: usuario.id }) // opcional, depende de backend
+  });
+
+  if (!res.ok) throw new Error("Error al borrar la reseña");
+  return true;
+}
