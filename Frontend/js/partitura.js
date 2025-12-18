@@ -1,4 +1,5 @@
 import { getPartitura, enviarReseña } from "./api.js";
+import { eliminarReseña } from "./resena.js";
 
 // Devuelve el usuario logueado o null si no hay sesión
 function getUsuarioLogueado() {
@@ -51,8 +52,7 @@ async function mostrarPartitura(id) {
       partitura.reseñas.forEach(reseña => {
 
         // Verificamos si esta reseña es del usuario.
-        const esAutor =
-          usuarioLogueado && usuarioLogueado.id === reseña.usuario_id;
+        const esAutor = usuarioLogueado && usuarioLogueado.id === reseña.usuario_id;
 
         const fecha = new Date(reseña.fecha_creacion).toLocaleDateString("es-ES");
         const estrellas = "★".repeat(reseña.estrellas) + "☆".repeat(5 - reseña.estrellas);
@@ -61,25 +61,19 @@ async function mostrarPartitura(id) {
         const botonesReseña = esAutor
           ? `
             <div class="buttons is-right mt-2">
-              <button
-                class="button is-small is-link"
-                onclick="editarReseña(${reseña.id})">
+              <button class="button is-small is-link" id="editarReseña${reseña.id}">
                 Editar
               </button>
-
-              <button
-                class="button is-small is-danger is-light"
-                onclick="eliminarReseña(${reseña.id})">
+              <button class="button is-small is-danger is-light" id="eliminarReseña${reseña.id}">
                 Eliminar
               </button>
-            </div>
-          `
+            </div>`
           : "";
 
         // Construimos el HTML de la reseña.
         // Los botones solo aparecen si botonesReseña no está vacío.
         const reseñaHTML = `
-          <article class="media review-post">
+          <article class="media review-post" data-id="${reseña.id}">
             <div class="media-content">
               <div class="content">
                 <h5>${reseña.titulo || "Sin título"}</h5>
@@ -94,9 +88,7 @@ async function mostrarPartitura(id) {
                   <span>${reseña.contenido}</span>
                 </p>
               </div>
-
               <div class="has-text-warning">${estrellas}</div>
-
               ${botonesReseña}
             </div>
           </article>
@@ -109,6 +101,15 @@ async function mostrarPartitura(id) {
 
         // Insertamos antes del form para que aparezcan arriba.
         form.insertAdjacentElement("afterend", reseñaNode);
+
+        // Asignar el evento de eliminar a este botón.
+        const eliminarBtn = document.getElementById(`eliminarReseña${reseña.id}`);
+        if (eliminarBtn) {
+          eliminarBtn.addEventListener("click", () => {
+            console.log(`Eliminar reseña con id: ${reseña.id}`);
+            eliminarReseña(reseña.id); // Llamar a la función eliminarReseña
+          });
+        }
       });
     // Si no hay reseñas.
     } else {

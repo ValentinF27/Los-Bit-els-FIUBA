@@ -48,7 +48,7 @@ export async function borrarReseña(reseña_id) {
   const res = await fetch(`http://localhost:3000/api/resenas/${reseña_id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ usuario_id: usuario.id }) // opcional, depende de backend
+    body: JSON.stringify({ usuario_id: usuario.id }) 
   });
 
   if (!res.ok) throw new Error("Error al borrar la reseña");
