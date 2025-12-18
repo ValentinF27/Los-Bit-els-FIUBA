@@ -2,10 +2,46 @@ import { Router } from 'express';
 const router = Router();
 import { pool } from "../db.js";
 
+// Login verificar nickname y password.
+router.post("/login", async (req, res) => {
+  const { nickname, password } = req.body;
+
+  try {
+    // Buscar usuario por nickname.
+    const usuarioResult = await pool.query(
+      "SELECT * FROM usuarios WHERE nickname = $1",
+      [nickname]
+    );
+
+    if (usuarioResult.rows.length === 0) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+
+    const usuario = usuarioResult.rows[0];
+
+    // Verificar contraseña.
+    if (usuario.contraseña !== password) {
+      return res.status(401).json({ error: "Contraseña incorrecta" });
+    }
+
+    // Si todo bien, devolvemos datos del usuario
+    res.json(usuario);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "DB error" });
+  }
+});
+
+// Muestra usuario.
 router.get("/:id", async (req, res) => {
   try {
     // Tomamos el id desde la URL.
     const { id } = req.params;
+
+    if (isNaN(id)) {
+      return res.status(400).json({ error: "ID inválido" });
+    }
 
     // Pedimos solo ese usuario a la base de datos.
     const usuarioResult = await pool.query(
@@ -39,6 +75,77 @@ router.get("/:id", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "DB error" });
+  }
+});
+
+/* =========================
+   POST CREAR USUARIO
+========================= */
+router.post("/", async (req, res) => {
+  try {
+    const {
+      nickname,
+      name,
+      email,
+      password,
+      phone,
+      location,
+      instruments,
+      genres,
+      birth,
+      gender
+    } = req.body;
+
+    // Validación mínima
+    if (!nickname || !email || !password) {
+      return res.status(400).json({
+        error: "Nickname, email y password son obligatorios"
+      });
+    }
+
+    // Verificar duplicados
+    const exists = await pool.query(
+      "SELECT id FROM usuarios WHERE email = $1 OR nickname = $2",
+      [email, nickname]
+    );
+
+     if (exists.rows.length > 0) {
+      return res.status(409).json({
+        error: "Email o nickname ya registrado"
+      });
+    }
+
+    // Encriptar password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Insertar usuario con nombres de columnas correctos
+    const insert = await pool.query(
+      `INSERT INTO usuarios
+       (nickname, nom_completo, email, contraseña, telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+       RETURNING id, nickname, email`,
+      [
+        nickname,
+        name || null,
+        email,
+        hashedPassword,
+        phone || null,
+        location || null,
+        instruments || null,
+        genres || null,
+        birth || null,
+        gender || null
+      ]
+    );
+
+    res.status(201).json({
+      ok: true,
+      user: insert.rows[0]
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
   }
 });
 
