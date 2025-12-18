@@ -1,11 +1,11 @@
 # Como correr el Backend?
 ```
-cd backend
+cd Backend
 make deps
 make run
 ```
 # Como correr el Frontend?
 ```
-cd frontend
+cd Frontend
 http-server
 ```
