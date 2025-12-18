@@ -14,33 +14,19 @@
   </head>
   <body>
 
-  <!-- Navbar -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <!-- Link a Home -->
-      <a class="navbar-item" href="./index.html">
-        <!-- Navbar Título -->
-        <h1><strong>BIT-ELS</strong></h1>
-        <!-- Navbar logo -->
-        <img src="./iconos/logo.png"
-        alt="Logo del sitio web (notas musicales)">
-      </a>
-
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item">
-          Home
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <!-- Link a Home -->
+        <a class="navbar-item" href="./index.html">
+          <!-- Navbar Título -->
+          <h1><strong>BIT-ELS</strong></h1>
+          <!-- Navbar logo -->
+          <img src="./iconos/logo.png"
+          alt="Logo del sitio web (notas musicales)">
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="menuNavbar">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -49,29 +35,31 @@
       </div>
 
       <!--bloque central navbar-->
-      <div id="navbarBasicExample" class="navbar-menu">
-        
-        
-        <div class="navbar-start is-flex is-justify-content-center is-align-items-center" style="width: 100%;">
-          
-          <!--cantidad posts-->
-          <div class="level-item">
-            <p class="subtitle is-5"><strong>123</strong> partituras</p>
-          </div>
-
-          <!--barra de busqueda-->
-          <div class="level-item">
-            <div class="field has-addons">
-              <p class="control">
-                <input class="input" type="text" placeholder="Find a post" />
-              </p>
-              <p class="control">
-                <button class="button">Search</button>
-              </p>
+      <div id="menuNavbar" class="navbar-menu">
+        <div class="navbar-item has-dropdown" id="navbarBusqueda" style="justify-content:center; align-items:center;">
+          <div class="navbar-link" style="padding:0; background:none;">
+            <div class="field has-addons" style="width:500px; margin:0;">
+              <div class="control is-expanded">
+                <input
+                  id="navbarInput"
+                  class="input"
+                  type="text"
+                  placeholder="Buscar..."
+                >
+              </div>
+              <div class="control">
+                <button id="navbarBotonBusqueda" class="button is-primary">
+                  Buscar
+                </button>
+              </div>
             </div>
           </div>
+
+          <div class="navbar-dropdown" id="navbarDropdown"></div>
         </div>
 
+
+      
 
         <!-- Sign up / Log in -->
         <div class="navbar-end">
@@ -88,6 +76,8 @@
         </div>
       </div>
     </nav>
+
+
       <!-- LISTA DE PARTITURAS RECIENTES -->
     <div class="section">
       <div class="container">
@@ -180,5 +170,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="./js/navbar.js"></script>
   </body>
 </html>

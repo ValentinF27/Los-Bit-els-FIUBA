@@ -48,4 +48,30 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  const { query } = req.query;
+
+  const result = await pool.query(
+    `SELECT partituras.id,
+       partituras.nombre,
+       partituras.artista,
+       partituras.genero,
+       partituras.instrumento,
+       partituras.imagen,
+       AVG(reseñas.estrellas) AS promedio_estrellas
+    FROM partituras
+    LEFT JOIN reseñas ON reseñas.partitura_id = partituras.id
+    WHERE nombre ILIKE $1
+      OR artista ILIKE $1
+      OR instrumento ILIKE $1
+      OR genero ILIKE $1
+    GROUP BY partituras.id, partituras.nombre, partituras.artista, partituras.genero, partituras.instrumento, partituras.imagen
+    ORDER BY promedio_estrellas DESC NULLS LAST;`,
+    [`%${query}%`]
+  );
+
+  res.json(result.rows);
+});
+
+
 export default router;

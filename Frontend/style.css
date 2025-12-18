@@ -226,3 +226,18 @@ form .button.is-success {
   text-shadow: 0 0 6px var(--naranja-atardecer), 0 0 10px var(--lila-suave);
 }
 
+#navbarBusqueda {
+  position: relative;
+}
+
+#navbarBusqueda .navbar-dropdown {
+  width: 100%;
+  max-width: 500px; /* igual al input */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#navbarBusqueda .navbar-link::after {
+  display: none;
+}

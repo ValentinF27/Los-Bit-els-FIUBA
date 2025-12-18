@@ -11,3 +11,11 @@ export async function getPartitura(id) {
   if (!res.ok) throw new Error(`Partitura no encontrada`);
   return await res.json();
 }
+
+// Busca partituras que coincidan con el query dado.
+export async function buscarPartituras(query) {
+  const res = await fetch(`http://localhost:3000/api/partituras?query=${encodeURIComponent(query)}`);
+  if (!res.ok) throw new Error("Error al buscar partituras");
+
+  return res.json();
+}
