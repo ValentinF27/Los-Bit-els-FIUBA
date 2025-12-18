@@ -29,4 +29,39 @@ router.post("/", async (req, res) => {
   }
 });
 
+// Elimina reseña por ID
+router.delete("/:id", async (req, res) => {
+  const reseñaId = req.params.id;
+  const usuarioId = req.body.usuario_id;
+
+  try {
+    // Verificamos si la reseña existe.
+    const result = await pool.query(
+      `SELECT * FROM reseñas WHERE id = $1`, [reseñaId]
+    );
+    const reseña = result.rows[0];
+
+    if (!reseña) {
+      return res.status(404).json({ error: "Reseña no encontrada" });
+    }
+
+    // Verificamos si el usuario logueado es el propietario de la reseña.
+    if (reseña.usuario_id !== usuarioId) {
+      return res.status(403).json({ error: "No puedes eliminar esta reseña. No eres el autor." });
+    }
+
+    // Eliminar la reseña de la base de datos
+    await pool.query(
+      `DELETE FROM reseñas WHERE id = $1`, [reseñaId]
+    );
+
+    // Enviamos una respuesta de éxito
+    res.status(200).json({ message: "Reseña eliminada correctamente" });
+
+  } catch (error) {
+    console.error("Error al eliminar reseña:", error);
+    res.status(500).json({ error: "Error de servidor al eliminar la reseña." });
+  }
+});
+
 export default router;
