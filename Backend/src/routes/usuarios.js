@@ -63,3 +63,6 @@ router.post("/", async (req, res) => {
         error: "Email o nickname ya registrado"
       });
     }
+
+    // Encriptar password
+    const hashedPassword = await bcrypt.hash(password, 10);
