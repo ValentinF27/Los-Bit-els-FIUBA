@@ -78,8 +78,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-export default router;
-
 /* =========================
    POST CREAR USUARIO
 ========================= */
@@ -152,6 +150,3 @@ router.post("/", async (req, res) => {
 });
 
 export default router;
-
-
-
