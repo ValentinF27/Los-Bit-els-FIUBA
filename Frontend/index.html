@@ -77,99 +77,27 @@
       </div>
     </nav>
 
-
-      <!-- LISTA DE PARTITURAS RECIENTES -->
-    <div class="section">
+    <!-- PARTITURAS POPULARES -->
+    <section class="section">
       <div class="container">
-        <div class="level mb-5">
-          <div class="level-left">
-            <h2 class="title is-3">Partituras recientes</h2>
-          </div>
-          <div class="level-right">
-            <a class="button is-small is-link is-light">Ver todas</a>
-          </div>
-        </div>
+        <h2 class="title is-3">Partituras populares ⭐</h2>
+        <p class="subtitle is-6">Mejor valoradas por la comunidad</p>
 
-        <p class="subtitle is-6">Explorá las ultimas partituras de la web</p>
-
-          
-        <div class="columns is-multiline">
-          <!-- Tarjeta 1 -->
-          <div class="column is-one-quarter">
-            <div class="card post-card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="./media/imagenes/queen.jpg" alt="portada cancion" />
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title is-5">Don't Stop Me Now</p>
-                <p class="subtitle is-6">Piano - Queen</p>
-              </div>
-              <footer class="card-footer">
-                <a href="partitura.html" class="card-footer-item">Ver</a>
-              </footer>
-              </div>
-            </div>
-          
-            <!-- Tarjeta 2 -->
-          <div class="column is-one-quarter">
-            <div class="card post-card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="./media/imagenes/john_lennon.jpg" alt="portada cancion" />
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title is-5">Imagine</p>
-                <p class="subtitle is-6">Piano - John Lennon</p>
-              </div>
-              <footer class="card-footer">
-                <a href="partitura.html" class="card-footer-item">Ver</a>
-              </footer>
-            </div>
-          </div>
-
-
-          <!-- Tarjeta 3 -->
-          <div class="column is-one-quarter">
-            <div class="card post-card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="./media/imagenes/queen.jpg" alt="portada cancion" />
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title is-5">Bohemian Rhapsody</p>
-                <p class="subtitle is-6">Piano - Queen</p>
-              </div>
-              <footer class="card-footer">
-                <a href="partitura.html" class="card-footer-item">Ver</a>
-              </footer>
-            </div>
-          </div>
-
-
-            <!-- Tarjeta 4 -->
-          <div class="column is-one-quarter">
-            <div class="card post-card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img src="./media/imagenes/beatles.jpg" alt="portada cancion" />
-                </figure>
-              </div>
-              <div class="card-content">
-                <p class="title is-5">Let It Be</p>
-                <p class="subtitle is-6">Piano - Beatles</p>
-              </div>
-              <footer class="card-footer">
-                <a href="partitura.html" class="card-footer-item">Ver</a>
-              </footer>
-            </div>
-          </div>
-        </div>
+        <div id="populares" class="columns is-multiline"></div>
       </div>
-    </div>
+    </section>
+
+    <!-- PARTITURAS RECIENTES -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Partituras recientes</h2>
+        <p class="subtitle is-6">Explorá las últimas partituras</p>
+
+        <div id="recientes" class="columns is-multiline"></div>
+      </div>
+    </section>
+
+    <script type="module" src="./js/index.js"></script>
     <script type="module" src="./js/navbar.js"></script>
   </body>
 </html>

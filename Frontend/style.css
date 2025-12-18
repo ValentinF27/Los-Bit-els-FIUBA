@@ -21,6 +21,12 @@
   font-family: Micro5-Regular;
 }
 
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
 /* Estilo general */
 body {
   font-family: Jersey10-Regular, Micro5-Regular;

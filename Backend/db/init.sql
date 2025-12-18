@@ -55,7 +55,7 @@ CREATE TABLE reseñas (
 -- =========================
 
 INSERT INTO public.usuarios
-(id, nickname, nom_completo, email, "contraseña", telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero, fecha_creacion)
+(id, nickname, nom_completo, email, contraseña, telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero, fecha_creacion)
 VALUES
 (1, 'OscarRock123', 'Oscar Perez', 'oscarcito@mail.com', 'topsecret', '1145437127', 'CABA, Argentina', 'Guitarra', 'Punk', '1998-04-12', 'M', '2025-12-14 23:53:04'),
 (2, 'MaggieMarley02', 'Maggie Campbell', 'magicbell@mail.com', 'snoopdogg', '1930468211', 'Kingston, Jamaica', 'Voz', 'Reggae', '2002-11-09', 'F', '2025-12-14 23:56:26'),
@@ -84,7 +84,7 @@ VALUES
 -- RESEÑAS (DATOS DE PRUEBA)
 -- =========================
 
-INSERT INTO public."reseñas"
+INSERT INTO public.reseñas
 (id, usuario_id, partitura_id, titulo, contenido, estrellas, fecha_creacion, fecha_modificacion)
 VALUES
 (1, 3, 1, 'Falta práctica',
