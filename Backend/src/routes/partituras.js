@@ -2,6 +2,7 @@ import { Router } from 'express';
 const router = Router();
 import { pool } from "../db.js";
 
+// Muestra partitura.
 router.get("/:id", async (req, res) => {
   try {
     // Tomamos el id de la partitura desde la URL.
