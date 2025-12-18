@@ -1,2 +1,11 @@
-# Los-Bit-els-FIUBA
-TP 1 del curso Introducción al Desarrollo de Software, Cátedra Camejo.
+# Como correr el Backend?
+```
+cd backend
+make deps
+make run
+```
+# Como correr el Frontend?
+```
+cd frontend
+http-server
+```
