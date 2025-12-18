@@ -66,3 +66,37 @@ router.post("/", async (req, res) => {
 
     // Encriptar password
     const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Insertar usuario
+    const insert = await pool.query(
+      `INSERT INTO usuarios
+        (nickname, nombre, email, password, telefono, ubicacion, instrumento, genero_musical, fecha_nacimiento, genero)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
+       RETURNING id, nickname, email`,
+      [
+        nickname,
+        name || null,
+        email,
+        hashedPassword,
+        phone || null,
+        location || null,
+        instruments || null,
+        genres || null,
+        birth || null,
+        gender || null
+      ]
+    );
+
+    res.status(201).json({
+      ok: true,
+      user: insert.rows[0]
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "DB error" });
+  }
+});
+
+export default router;
+
