@@ -54,7 +54,7 @@ CREATE TABLE reseñas (
 -- USUARIOS (DATOS DE PRUEBA)
 -- =========================
 
-INSERT INTO public.usuarios
+INSERT INTO usuarios
 ( nickname, nom_completo, email, "contraseña", telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero, fecha_creacion)
 VALUES
 ('OscarRock123', 'Oscar Perez', 'oscarcito@mail.com', 'topsecret', '1145437127', 'CABA, Argentina', 'Guitarra', 'Punk', '1998-04-12', 'M', '2025-12-14 23:53:04'),
@@ -108,7 +108,7 @@ VALUES
 -- =========================
 
 
-INSERT INTO public.partituras
+INSERT INTO partituras
 (nombre, usuario_id, pdf, audio, artista, genero, instrumento, nivel, duracion, descripcion, fecha_creacion, fecha_modificacion, imagen)
 VALUES
 ('Don''t Stop Me Now', 1, '/media/pdfs/dont_stop_me_now_queen.pdf', '/media/audios/dont_stop_me_now_queen.mp3', 'Queen', 'Rock', 'Piano', 'Fácil', '3:35',
@@ -142,7 +142,7 @@ VALUES
  'Un gran tema que todos conocen, ideal para principiantes que esten aprendiendo','2025-12-17 18:00:02', '2025-12-17 18:00:02', '/media/imagenes/simpsons.jpg' ),
 
 ('Wonderwall', 30, '/media/pdfs/wonderwall_oasis.pdf', '/media/audios/wonderwall_oasis.mp3', 'Oasis', 'Rock', 'Piano', 'Intermedia', '4:15', 
- 'BECAUSE MAYBE YOU\'RE GONNA BE THE ONE THAT SAVES MEAND AFTER ALL YOU ARE MY WONDERWALL','2025-12-17 18:05:42', '2025-12-17 18:05:42', '/media/imagenes/oasis.jpg' ),
+ 'BECAUSE MAYBE YOU''RE GONNA BE THE ONE THAT SAVES MEAND AFTER ALL YOU ARE MY WONDERWALL','2025-12-17 18:05:42', '2025-12-17 18:05:42', '/media/imagenes/oasis.jpg' ),
 
 ('Never Gonna Give You Up', 6, '/media/pdfs/never_gonna_give_you_up_rick_astley.pdf', '/media/audios/never_gonna_give_you_up_rick_astley.mp3', 'Rick Astley', 'Pop', 
 'Piano', 'Intermedia', '3:16', 'Gran tema, para que puedan rickrollear a quien les plazca','2025-12-17 18:30:52', '2025-12-17 18:30:52', '/media/imagenes/rick_astley.jpg' ),
@@ -194,20 +194,14 @@ VALUES
 -- RESEÑAS (DATOS DE PRUEBA)
 -- =========================
 
-INSERT INTO public."reseñas"
+INSERT INTO "reseñas"
 (usuario_id, partitura_id, titulo, contenido, estrellas, fecha_creacion, fecha_modificacion)
 VALUES
-(3, 1, 'Falta práctica',
- 'Varios errores en la parte final. Buen intento para esta versión de principiantes, pero hay espacio para mejoras.',
- 2, '2025-12-16 05:18:12', '2025-12-16 05:18:12'),
+(3, 1, 'Falta práctica','Varios errores en la parte final. Buen intento para esta versión de principiantes, pero hay espacio para mejoras.',2, '2025-12-16 05:18:12', '2025-12-16 05:18:12'),
 
-(3, 2, 'Buen trabajo',
- 'Pequeños errores no devalúan esta gran composición. Enhorabuena!',
- 4, '2025-12-16 05:23:09', '2025-12-16 05:23:09'),
+(3, 2, 'Buen trabajo','Pequeños errores no devalúan esta gran composición. Enhorabuena!',4, '2025-12-16 05:23:09', '2025-12-16 05:23:09'),
 
-(2, 1, 'Que nostalgia',
- 'Una de las canciones favoritas de mis padres. Disfruté mucho aprenderla.',
- 5, '2025-12-16 05:25:35', '2025-12-16 05:25:35'),
+(2, 1, 'Que nostalgia','Una de las canciones favoritas de mis padres. Disfruté mucho aprenderla.',5, '2025-12-16 05:25:35', '2025-12-16 05:25:35'),
 
 (4,1,'Muy buena para empezar','Partitura clara y bien ordenada, ideal si recién arrancás.',5,'2025-12-18 10:15:17','2025-12-18 10:15:17'),
 
