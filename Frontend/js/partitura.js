@@ -1,4 +1,4 @@
-import { getPartitura } from "./api.js";
+import { getPartitura, enviarReseña } from "./api.js";
 
 // Función que obtiene la partitura y llena el HTML, incluyendo reseñas.
 async function mostrarPartitura(id) {
@@ -70,14 +70,14 @@ async function mostrarPartitura(id) {
         const reseñaNode = temp.firstElementChild;
 
         // Insertamos antes del form para que aparezcan arriba.
-        form.insertAdjacentElement("beforebegin", reseñaNode);
+        form.insertAdjacentElement("afterend", reseñaNode);
       });
     // Si no hay reseñas.
     } else {
       const p = document.createElement("p");
       p.className = "review-post";
       p.textContent = "No hay reseñas todavía. ¡Sé el primero en dejar una!";
-      form.insertAdjacentElement("beforebegin", p);
+      form.insertAdjacentElement("afterend", p);
     }
 
     } catch (error) {
@@ -86,11 +86,41 @@ async function mostrarPartitura(id) {
   }
 }
 
+// Función para inicializar el envío de reseña.
+function initReseñasForm() {
+  const form = document.getElementById("reseñas-form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // evitamos recarga de página
+
+    // Obtenemos valores del form.
+    const titulo = document.getElementById("reseña-titulo").value;
+    const contenido = document.getElementById("reseña-contenido").value;
+    const estrellas = parseInt(form.querySelector('input[name="rating"]:checked')?.value);
+
+    if (!estrellas) {
+      return alert("Debes seleccionar una calificación");
+    }
+
+    // Id de la partitura actual.
+    const params = new URLSearchParams(window.location.search);
+    const partitura_id = params.get("id");
+
+    // Enviamos la reseña al backend.
+    await enviarReseña({ titulo, contenido, estrellas, partitura_id });
+
+    // Llamamos de nuevo a mostrarPartitura para actualizar la lista de reseñas.
+    await mostrarPartitura(partitura_id);
+    // Limpiamos el form después de enviar.
+    form.reset();
+    alert("Reseña enviada correctamente");
+  });
+}
+
 // Ejecutamos al cargar la página.
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id") || 1; // defaultea a la partitura 1.
-  console.log("ID extraído de la URL:", id);
+  const id = params.get("id") || 1; // default id
   mostrarPartitura(id);
+  initReseñasForm(); // inicializamos el form
 });
-
