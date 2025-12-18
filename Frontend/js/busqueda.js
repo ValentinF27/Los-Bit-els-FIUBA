@@ -1,5 +1,20 @@
 import { buscarPartituras } from "./api.js";
 
+function renderEstrellas(promedio) {
+  const total = 5;
+  const valor = Math.round(Number(promedio || 0));
+
+  let html = `<div class="has-text-warning">`;
+
+  for (let i = 1; i <= total; i++) {
+    html += i <= valor ? "★" : "☆";
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+
 function getQueryParam(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
@@ -43,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div class="media-content">
             <strong>${p.nombre} (${p.instrumento})</strong><br>
-            <small>${p.artista} - ${p.genero}</small>
+            <small>${p.artista} - ${p.genero} ${renderEstrellas(p.promedio_estrellas)}</small>
           </div>
 
           <div class="media-right">

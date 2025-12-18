@@ -3,32 +3,44 @@ const router = Router();
 import { pool } from "../db.js";
 
 
-// GET /partituras/populares
 router.get("/populares", async (req, res) => {
   const result = await pool.query(`
-    SELECT p.*, AVG(r.estrellas) AS promedio
+    SELECT 
+      p.id,
+      p.nombre,
+      p.artista,
+      p.imagen,
+      ROUND(COALESCE(AVG(r.estrellas), 0), 1) AS promedio_estrellas
     FROM partituras p
-    JOIN reseñas r ON r.partitura_id = p.id
+    LEFT JOIN reseñas r ON r.partitura_id = p.id
     GROUP BY p.id
     HAVING AVG(r.estrellas) >= 4
     ORDER BY MAX(r.fecha_creacion) DESC
     LIMIT 4
   `);
+
   res.json(result.rows);
 });
 
 
-// GET /partituras/recientes
 router.get("/recientes", async (req, res) => {
   const result = await pool.query(`
-    SELECT *
-    FROM partituras
-    ORDER BY fecha_creacion DESC
+    SELECT 
+      p.id,
+      p.nombre,
+      p.artista,
+      p.imagen,
+      ROUND(COALESCE(AVG(r.estrellas), 0), 1) AS promedio_estrellas
+    FROM partituras p
+    LEFT JOIN reseñas r ON r.partitura_id = p.id
+    GROUP BY p.id
+    ORDER BY p.fecha_creacion DESC
     LIMIT 4
   `);
+
   res.json(result.rows);
 });
-  
+
 
 
 router.get("/:id", async (req, res) => {
@@ -87,7 +99,7 @@ router.get("/", async (req, res) => {
        p.genero,
        p.instrumento,
        p.imagen,
-       AVG(reseñas.estrellas) AS promedio
+       ROUND(COALESCE(AVG(reseñas.estrellas), 0), 1) AS promedio_estrellas
     FROM partituras p
     LEFT JOIN reseñas ON reseñas.partitura_id = p.id
     WHERE nombre ILIKE $1
@@ -95,7 +107,7 @@ router.get("/", async (req, res) => {
       OR instrumento ILIKE $1
       OR genero ILIKE $1
     GROUP BY p.id, p.nombre, p.artista, p.genero, p.instrumento, p.imagen
-    ORDER BY promedio DESC NULLS LAST`,
+    ORDER BY promedio_estrellas DESC NULLS LAST`,
     [`%${query}%`]
   );
 
