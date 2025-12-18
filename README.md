@@ -109,11 +109,14 @@ Clonar el repositorio:
 ```Bash
 git clone <git@github.com:ValentinF27/Los-Bit-els-FIUBA.git>
 
+---
 
-## Cómo correr el Backend
+## Cómo correr el proyecto
 
+### Backend
 ```bash
 cd Backend
 make deps
 make run
+
 
