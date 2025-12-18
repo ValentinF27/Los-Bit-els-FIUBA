@@ -59,7 +59,7 @@ INSERT INTO public.usuarios
 VALUES
 ('OscarRock123', 'Oscar Perez', 'oscarcito@mail.com', 'topsecret', '1145437127', 'CABA, Argentina', 'Guitarra', 'Punk', '1998-04-12', 'M', '2025-12-14 23:53:04'),
 ('MaggieMarley02', 'Maggie Campbell', 'magicbell@mail.com', 'snoopdogg', '1930468211', 'Kingston, Jamaica', 'Voz', 'Reggae', '2002-11-09', 'F', '2025-12-14 23:56:26'),
-('JTsnob13', 'James Taylor Smith', 'jamienofun@mail.com', 'OpenSesame', '3170865531', 'Connecticut, USA', 'Violin', 'Clásica', '1979-02-13', 'M', '2025-12-16 05:12:14');
+('JTsnob13', 'James Taylor Smith', 'jamienofun@mail.com', 'OpenSesame', '3170865531', 'Connecticut, USA', 'Violin', 'Clásica', '1979-02-13', 'M', '2025-12-16 05:12:14'),
 ('ClaveDeSol', 'Sol Pérez', 'solperez@mail.com', 'fititopaez', '1134000001', 'Buenos Aires, Argentina', 'Guitarra', 'Rock', '1994-03-12', 'F', '2025-01-05 10:12:33'),
 ('MariMonroe1', 'María López', 'maria.lopez@mail.com', 'doremi02', '1134000002', 'Córdoba, Argentina', 'Piano', 'Clásica', '1989-07-21', 'F', '2025-01-07 14:45:10'),
 ('Prodan23', 'Lucas Fernández', 'lucas.fernandez@mail.com', 'sumomipasion', '1134000003', 'Rosario, Argentina', 'Bajo', 'Rock', '1992-11-05', 'M', '2025-01-10 09:05:44'),
@@ -121,7 +121,7 @@ VALUES
 
 ('Highway to Hell', 1, '/media/pdfs/highway_to_hell_acdc.pdf', '/media/audios/highway_to_hell_acdc.mp3', 'ACDC', 'Hard Rock', 'Guitarra', 'Intermedia', '3:29',
  'Comparto la partitura de este himno del Rock. Gran solo para ir ganando experiencia en el instrumento.',
- '2025-12-16 18:36:35', '2025-12-16 18:36:35', '/media/imagenes/acdc.jpg');
+ '2025-12-16 18:36:35', '2025-12-16 18:36:35', '/media/imagenes/acdc.jpg'),
 
 ('Bohemian Rhapsody', 12, '/media/pdfs/bohemian_rhapsody_queen.pdf', '/media/audios/bohemian_rhapsody_queen.mp3', 'Queen', 'Rock', 'Piano', 'Fácil', '5:40',
  'Gran tema con un gran trasfondo, espero les sirva','2025-12-17 17:23:22', '2025-12-17 17:23:22', '/media/imagenes/queen.jpg' )
@@ -141,8 +141,8 @@ VALUES
 ('The Simpsons', 44, '/media/pdfs/simpsons.pdf', '/media/audios/simpsons.mp3', 'The Simpsons', 'Tema Principal', 'Piano', 'Fácil', '2:33', 
  'Un gran tema que todos conocen, ideal para principiantes que esten aprendiendo','2025-12-17 18:00:02', '2025-12-17 18:00:02', '/media/imagenes/simpsons.jpg' )
 
-('', 30, '/media/pdfs/imagine_john_lennon.pdf', '/media/audios/imagine_john_lennon.mp3', 'John Lennon', 'Soft Rock', 'Piano', 'Intermedia', '3:05', 
- 'El mejor tema, del mejor de todos','2025-12-17 17:21:52', '2025-12-17 17:21:52', '/media/imagenes/john_lennon.jpg' )
+('Wonderwall', 30, '/media/pdfs/wonderwall_oasis.pdf', '/media/audios/wonderwall_oasis.mp3', 'Oasis', 'Rock', 'Piano', 'Intermedia', '4:15', 
+ 'BECAUSE MAYBE YOU\'RE GONNA BE THE ONE THAT SAVES MEAND AFTER ALL YOU ARE MY WONDERWALL','2025-12-17 18:05:42', '2025-12-17 18:05:42', '/media/imagenes/oasis.jpg' )
 
 ('Never Gonna Give You Up', 6, '/media/pdfs/never_gonna_give_you_up_rick_astley.pdf', '/media/audios/never_gonna_give_you_up_rick_astley.mp3', 'Rick Astley', 'Pop', 
 'Piano', 'Intermedia', '3:16', 'Gran tema, para que puedan rickrollear a quien les plazca','2025-12-17 18:30:52', '2025-12-17 18:30:52', '/media/imagenes/rick_astley.jpg' )
@@ -178,7 +178,17 @@ VALUES
 'Piano', 'Dificil', '3:25', 'Dejo uno de los temas mas conocidos de probablemente mi banda favorita','2025-12-17 19:27:57', '2025-12-17 19:27:57', '/media/imagenes/linkin_park.jpg' )
 
 ('Somewhere I Belong', 33, '/media/pdfs/somewhere_i_belong_linkin_park.pdf', '/media/audios/somewhere_i_belong_linkin_park.mp3', 'Linkin Park', 'Rock Alternativo', 
-'Piano', 'Dificil', '3:33', 'Esta vez les dejo mi tema preferido, de adolescente me identificaba mucho con esta cancion','2025-12-17 19:28:23', '2025-12-17 19:28:23', '/media/imagenes/linkin_park.jpg' )
+'Piano', 'Dificil', '3:33', 'Esta vez les dejo mi tema preferido, de adolescente me identificaba mucho con esta cancion','2025-12-17 19:28:23', '2025-12-17 19:28:23', 
+'/media/imagenes/linkin_park.jpg' )
+
+('On Melancholy Hill', 22, '/media/pdfs/on_melancholy_hill_gorillaz.pdf', '/media/audios/on_melancholy_hill_gorillaz.mp3', 'Gorillaz', 'Rock Alternativo', 
+'Piano', 'Intermedio', '3:44', 'Buenas, traigo un tema intermedio para quienes ya sepan tocar','2025-12-18 10:11:40', '2025-12-18 10:11:40', '/media/imagenes/gorillaz.jpg' )
+
+('Rhinestone Eyes', 22, '/media/pdfs/rhinestone_eyes_gorillaz.pdf', '/media/audios/rhinestone_eyes_gorillaz.mp3', 'Gorillaz', 'Rock Alternativo', 
+'Piano', 'Intermedio', '3:18', 'Dejo otro tema de un album distinto, sigue siendo nivel intermedio, espero les guste','2025-12-18 10:13:30', '2025-12-18 10:13:30', '/media/imagenes/gorillaz.jpg' )
+
+('Ride', 40, '/media/pdfs/ride_twenty_one_pilots.pdf', '/media/audios/ride_twenty_one_pilots.mp3', 'Twenty One Pilots', 'Rock Indie', 
+'Piano', 'Intermedio', '3:30', 'Un gran tema para quienes ya sepan lo basico del piano','2025-12-18 10:15:17', '2025-12-18 10:15:17', '/media/imagenes/twenty_one_pilots.jpg' );
 
 
 -- =========================
@@ -198,5 +208,90 @@ VALUES
 
 (2, 1, 'Que nostalgia',
  'Una de las canciones favoritas de mis padres. Disfruté mucho aprenderla.',
- 5, '2025-12-16 05:25:35', '2025-12-16 05:25:35');
+ 5, '2025-12-16 05:25:35', '2025-12-16 05:25:35'),
 
+(4,1,'Muy buena para empezar','Partitura clara y bien ordenada, ideal si recién arrancás.',5,'2025-12-18 10:15:17','2025-12-18 10:15:17'),
+
+(7,3,'Esperaba más','No está mal, pero el solo podría estar mejor explicado.',3,'2025-12-18 10:18:17','2025-12-18 10:18:17'),
+
+(12,4,'Excelente arreglo','Muy fiel al tema original, se disfruta mucho tocarla.',5,'2025-12-18 10:21:17','2025-12-18 10:21:17'),
+
+(18,7,'Algo confusa','Algunas partes no se entienden bien a primera vista.',2,'2025-12-18 10:24:17','2025-12-18 10:24:17'),
+
+(10,8,'Buen nivel','Tiene su dificultad justa, ideal para nivel intermedio.',4,'2025-12-18 10:27:17','2025-12-18 10:27:17'),
+
+(22,5,'Temazo mal adaptado','El tema es increíble pero la adaptación no me convenció.',2,'2025-12-18 10:30:17','2025-12-18 10:30:17'),
+
+(27,6,'Hermosa versión','Funciona perfecto en piano, muy emotiva.',5,'2025-12-18 10:33:17','2025-12-18 10:33:17'),
+
+(6,11,'Cumple','No es espectacular, pero sirve para tocar el tema.',3,'2025-12-18 10:36:17','2025-12-18 10:36:17'),
+
+(33,20,'Muy exigente','Demasiado difícil para lo que indica la descripción.',2,'2025-12-18 10:39:17','2025-12-18 10:39:17'),
+
+(16,18,'Buen groove','Está bien llevada y suena muy bien.',4,'2025-12-18 10:42:17','2025-12-18 10:42:17'),
+
+(19,17,'No me gustó','La transcripción no coincide mucho con el original.',1,'2025-12-18 10:45:17','2025-12-18 10:45:17'),
+
+(30,10,'Interesante','Una forma distinta de tocar el tema.',4,'2025-12-18 10:48:17','2025-12-18 10:48:17'),
+
+(24,14,'Muy divertida','Ideal para practicar ritmo y coordinación.',5,'2025-12-18 10:51:17','2025-12-18 10:51:17'),
+
+(10,12,'Regular','Está bien, pero podría estar mejor detallada.',3,'2025-12-18 10:54:17','2025-12-18 10:54:17'),
+
+(40,25,'Excelente','Muy bien escrita, se disfruta mucho tocarla.',5,'2025-12-18 10:57:17','2025-12-18 10:57:17'),
+
+(22,24,'No es para mí','No me convenció el arreglo elegido.',2,'2025-12-18 11:00:17','2025-12-18 11:00:17'),
+
+(6,19,'Gran tema','Bien adaptado y fácil de seguir.',4,'2025-12-18 11:03:17','2025-12-18 11:03:17'),
+
+(33,21,'Muy floja','Le faltan indicaciones importantes.',1,'2025-12-18 11:06:17','2025-12-18 11:06:17'),
+
+(16,16,'Correcta','Cumple su función sin destacar.',3,'2025-12-18 11:09:17','2025-12-18 11:09:17'),
+
+(18,9,'Ideal principiantes','Muy simple y clara.',5,'2025-12-18 11:12:17','2025-12-18 11:12:17'),
+
+(27,2,'Algo básica','Esperaba un poco más de complejidad.',3,'2025-12-18 11:15:17','2025-12-18 11:15:17'),
+
+(12,15,'Muy recomendable','Perfecta para mejorar técnica.',5,'2025-12-18 11:18:17','2025-12-18 11:18:17'),
+
+(24,13,'Difícil de seguir','La batería no está bien marcada.',2,'2025-12-18 11:21:17','2025-12-18 11:21:17'),
+
+(19,26,'Gran adaptación','Suena excelente en piano.',5,'2025-12-18 11:24:17','2025-12-18 11:24:17'),
+
+(30,23,'Aceptable','No destaca pero tampoco molesta.',3,'2025-12-18 11:27:17','2025-12-18 11:27:17'),
+
+(7,22,'Buen desafío','Requiere práctica, pero vale la pena.',4,'2025-12-18 11:30:17','2025-12-18 11:30:17'),
+
+(6,4,'Obra maestra','Una de las mejores del sitio.',5,'2025-12-18 11:33:17','2025-12-18 11:33:17'),
+
+(10,6,'No me convenció','El arreglo no termina de cerrar.',2,'2025-12-18 11:36:17','2025-12-18 11:36:17'),
+
+(22,8,'Muy bien lograda','Buen equilibrio entre dificultad y disfrute.',4,'2025-12-18 11:39:17','2025-12-18 11:39:17'),
+
+(18,5,'Decepcionante','Esperaba algo mucho mejor.',1,'2025-12-18 11:42:17','2025-12-18 11:42:17'),
+
+(16,3,'Sólida','Bien estructurada y clara.',4,'2025-12-18 11:45:17','2025-12-18 11:45:17'),
+
+(33,1,'Perfecta','Ideal para quienes recién empiezan.',5,'2025-12-18 11:48:17','2025-12-18 11:48:17'),
+
+(27,9,'Demasiado simple','Se queda corta para mi nivel.',2,'2025-12-18 11:51:17','2025-12-18 11:51:17'),
+
+(40,26,'Excelente cierre','Muy buena para tocar tranquilo.',5,'2025-12-18 11:54:17','2025-12-18 11:54:17'),
+
+(14,18,'Confusa','No se entiende bien la estructura.',2,'2025-12-18 11:57:17','2025-12-18 11:57:17'),
+
+(21,7,'Muy buena','Me sorprendió lo bien que suena.',4,'2025-12-18 12:00:17','2025-12-18 12:00:17'),
+
+(9,12,'Mala experiencia','Tiene varios errores.',1,'2025-12-18 12:03:17','2025-12-18 12:03:17'),
+
+(28,14,'Excelente','Muy bien pensada para practicar.',5,'2025-12-18 12:06:17','2025-12-18 12:06:17'),
+
+(31,20,'Difícil','No coincide con el nivel indicado.',2,'2025-12-18 12:09:17','2025-12-18 12:09:17'),
+
+(35,23,'Correcta','Nada fuera de lo común.',3,'2025-12-18 12:12:17','2025-12-18 12:12:17'),
+
+(38,25,'Muy buena','Gran adaptación.',4,'2025-12-18 12:15:17','2025-12-18 12:15:17'),
+
+(41,4,'Excelente aporte','Una joyita.',5,'2025-12-18 12:18:17','2025-12-18 12:18:17'),
+
+(42,8,'No recomendable','No me gustó para nada.',1,'2025-12-18 12:21:17','2025-12-18 12:21:17');
