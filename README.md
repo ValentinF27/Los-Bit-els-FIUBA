@@ -115,7 +115,7 @@ make deps
 make run
 
 # Correr el Frontend
-cd /Frontend
+cd Frontend
 http-server
 
 
