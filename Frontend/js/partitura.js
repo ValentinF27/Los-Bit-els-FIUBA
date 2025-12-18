@@ -1,5 +1,10 @@
 import { getPartitura, enviarReseña } from "./api.js";
 
+// Devuelve el usuario logueado o null si no hay sesión
+function getUsuarioLogueado() {
+  return JSON.parse(localStorage.getItem("usuarioLogueado"));
+}
+
 // Función que obtiene la partitura y llena el HTML, incluyendo reseñas.
 async function mostrarPartitura(id) {
   try {
@@ -32,34 +37,67 @@ async function mostrarPartitura(id) {
     document.getElementById("sheet-pdf").data = partitura.pdf;
     document.getElementById("sheet-pdf-link").href = partitura.pdf;
 
-    // --- Reseñas ---
+    // Reseñas.
     const reseñasContainer = document.getElementById("reseñas-container");
     const form = reseñasContainer.querySelector("form");
 
     // Limpiamos reseñas anteriores.
     reseñasContainer.querySelectorAll(".review-post").forEach(el => el.remove());
 
+    // Obtenemos usuario logueado una sola vez.
+    const usuarioLogueado = getUsuarioLogueado();
+
     if (partitura.reseñas && partitura.reseñas.length > 0) {
       partitura.reseñas.forEach(reseña => {
+
+        // Verificamos si esta reseña es del usuario.
+        const esAutor =
+          usuarioLogueado && usuarioLogueado.id === reseña.usuario_id;
+
         const fecha = new Date(reseña.fecha_creacion).toLocaleDateString("es-ES");
         const estrellas = "★".repeat(reseña.estrellas) + "☆".repeat(5 - reseña.estrellas);
 
-        // Construimos HTML de la reseña como template literal.
+        // Si el usuario es el autor, mostramos botones Editar / Eliminar.
+        const botonesReseña = esAutor
+          ? `
+            <div class="buttons is-right mt-2">
+              <button
+                class="button is-small is-link"
+                onclick="editarReseña(${reseña.id})">
+                Editar
+              </button>
+
+              <button
+                class="button is-small is-danger is-light"
+                onclick="eliminarReseña(${reseña.id})">
+                Eliminar
+              </button>
+            </div>
+          `
+          : "";
+
+        // Construimos el HTML de la reseña.
+        // Los botones solo aparecen si botonesReseña no está vacío.
         const reseñaHTML = `
           <article class="media review-post">
-            <figure class="media-left"></figure>
             <div class="media-content">
               <div class="content">
-                <h4>${reseña.titulo || "Sin título"}</h4>
+                <h5>${reseña.titulo || "Sin título"}</h5>
                 <p>
-                  <strong><a href="usuario.html?id=${reseña.usuario_id}">${reseña.usuario_nickname}</a></strong>
-                  <small>${reseña.usuario_email || ""}</small>
+                  <strong>
+                    <a href="usuario.html?id=${reseña.usuario_id}">
+                      ${reseña.usuario_nickname}
+                    </a>
+                  </strong>
                   <small>· ${fecha}</small>
                   <br>
                   <span>${reseña.contenido}</span>
                 </p>
               </div>
+
               <div class="has-text-warning">${estrellas}</div>
+
+              ${botonesReseña}
             </div>
           </article>
         `;
