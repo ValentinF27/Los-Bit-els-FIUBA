@@ -1,3 +1,5 @@
+import { initAuthUI } from "./auth.js";
+
 export async function login(nickname, password) {
   try {
     // Llamamos al backend con POST al endpoint de login.
@@ -19,6 +21,9 @@ export async function login(nickname, password) {
 
     // Guardamos el usuario en localStorage para mantener "sesión".
     localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
+
+    // Actualizamos la UI sin refrescar.
+    initAuthUI();
 
     // Redirigimos usando el id.
     window.location.href = `./usuario.html?id=${usuario.id}`;
