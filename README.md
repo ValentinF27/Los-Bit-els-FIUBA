@@ -105,18 +105,17 @@ Tabla `reseñas`:
 
 ## Instalación y ejecución
 
-Clonar el repositorio:
-```Bash
-git clone <git@github.com:ValentinF27/Los-Bit-els-FIUBA.git>
-
----
-
-## Cómo correr el proyecto
-
-### Backend
 ```bash
+# Clonar el repositorio
+git clone git@github.com:ValentinF27/Los-Bit-els-FIUBA.git
+
+# Correr el Backend
 cd Backend
 make deps
 make run
+
+# Correr el Frontend
+cd /Frontend
+http-server
 
 
