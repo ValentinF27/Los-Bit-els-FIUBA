@@ -3,6 +3,7 @@ import cors from "cors";
 
 import usuarios from "./routes/usuarios.js";
 import partituras from "./routes/partituras.js";
+import resenas from "./routes/resenas.js";
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 
 app.use('/api/usuarios', usuarios);
 app.use('/api/partituras', partituras);
+app.use('/api/resenas', resenas);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

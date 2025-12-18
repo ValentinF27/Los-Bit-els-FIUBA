@@ -1,4 +1,10 @@
-import { getPartitura } from "./api.js";
+import { getPartitura, enviarReseña } from "./api.js";
+import { eliminarReseña } from "./resena.js";
+
+// Devuelve el usuario logueado o null si no hay sesión
+function getUsuarioLogueado() {
+  return JSON.parse(localStorage.getItem("usuarioLogueado"));
+}
 
 // Función que obtiene la partitura y llena el HTML, incluyendo reseñas.
 async function mostrarPartitura(id) {
@@ -32,34 +38,58 @@ async function mostrarPartitura(id) {
     document.getElementById("sheet-pdf").data = partitura.pdf;
     document.getElementById("sheet-pdf-link").href = partitura.pdf;
 
-    // --- Reseñas ---
+    // Reseñas.
     const reseñasContainer = document.getElementById("reseñas-container");
     const form = reseñasContainer.querySelector("form");
 
     // Limpiamos reseñas anteriores.
     reseñasContainer.querySelectorAll(".review-post").forEach(el => el.remove());
 
+    // Obtenemos usuario logueado una sola vez.
+    const usuarioLogueado = getUsuarioLogueado();
+
     if (partitura.reseñas && partitura.reseñas.length > 0) {
       partitura.reseñas.forEach(reseña => {
+
+        // Verificamos si esta reseña es del usuario.
+        const esAutor = usuarioLogueado && usuarioLogueado.id === reseña.usuario_id;
+
         const fecha = new Date(reseña.fecha_creacion).toLocaleDateString("es-ES");
         const estrellas = "★".repeat(reseña.estrellas) + "☆".repeat(5 - reseña.estrellas);
 
-        // Construimos HTML de la reseña como template literal.
+        // Si el usuario es el autor, mostramos botones Editar / Eliminar.
+        const botonesReseña = esAutor
+          ? `
+            <div class="buttons is-right mt-2">
+              <button class="button is-small is-link" id="editarReseña${reseña.id}">
+                Editar
+              </button>
+              <button class="button is-small is-danger is-light" id="eliminarReseña${reseña.id}">
+                Eliminar
+              </button>
+            </div>`
+          : "";
+
+        // Construimos el HTML de la reseña.
+        // Los botones solo aparecen si botonesReseña no está vacío.
         const reseñaHTML = `
-          <article class="media review-post">
-            <figure class="media-left"></figure>
+          <article class="media review-post" data-id="${reseña.id}">
             <div class="media-content">
               <div class="content">
-                <h4>${reseña.titulo || "Sin título"}</h4>
+                <h5>${reseña.titulo || "Sin título"}</h5>
                 <p>
-                  <strong><a href="usuario.html?id=${reseña.usuario_id}">${reseña.usuario_nickname}</a></strong>
-                  <small>${reseña.usuario_email || ""}</small>
+                  <strong>
+                    <a href="usuario.html?id=${reseña.usuario_id}">
+                      ${reseña.usuario_nickname}
+                    </a>
+                  </strong>
                   <small>· ${fecha}</small>
                   <br>
                   <span>${reseña.contenido}</span>
                 </p>
               </div>
               <div class="has-text-warning">${estrellas}</div>
+              ${botonesReseña}
             </div>
           </article>
         `;
@@ -70,14 +100,23 @@ async function mostrarPartitura(id) {
         const reseñaNode = temp.firstElementChild;
 
         // Insertamos antes del form para que aparezcan arriba.
-        form.insertAdjacentElement("beforebegin", reseñaNode);
+        form.insertAdjacentElement("afterend", reseñaNode);
+
+        // Asignar el evento de eliminar a este botón.
+        const eliminarBtn = document.getElementById(`eliminarReseña${reseña.id}`);
+        if (eliminarBtn) {
+          eliminarBtn.addEventListener("click", () => {
+            console.log(`Eliminar reseña con id: ${reseña.id}`);
+            eliminarReseña(reseña.id); // Llamar a la función eliminarReseña
+          });
+        }
       });
     // Si no hay reseñas.
     } else {
       const p = document.createElement("p");
       p.className = "review-post";
       p.textContent = "No hay reseñas todavía. ¡Sé el primero en dejar una!";
-      form.insertAdjacentElement("beforebegin", p);
+      form.insertAdjacentElement("afterend", p);
     }
 
     } catch (error) {
@@ -86,11 +125,41 @@ async function mostrarPartitura(id) {
   }
 }
 
+// Función para inicializar el envío de reseña.
+function initReseñasForm() {
+  const form = document.getElementById("reseñas-form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // evitamos recarga de página
+
+    // Obtenemos valores del form.
+    const titulo = document.getElementById("reseña-titulo").value;
+    const contenido = document.getElementById("reseña-contenido").value;
+    const estrellas = parseInt(form.querySelector('input[name="rating"]:checked')?.value);
+
+    if (!estrellas) {
+      return alert("Debes seleccionar una calificación");
+    }
+
+    // Id de la partitura actual.
+    const params = new URLSearchParams(window.location.search);
+    const partitura_id = params.get("id");
+
+    // Enviamos la reseña al backend.
+    await enviarReseña({ titulo, contenido, estrellas, partitura_id });
+
+    // Llamamos de nuevo a mostrarPartitura para actualizar la lista de reseñas.
+    await mostrarPartitura(partitura_id);
+    // Limpiamos el form después de enviar.
+    form.reset();
+    alert("Reseña enviada correctamente");
+  });
+}
+
 // Ejecutamos al cargar la página.
 window.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
-  const id = params.get("id") || 1; // defaultea a la partitura 1.
-  console.log("ID extraído de la URL:", id);
+  const id = params.get("id") || 1; // default id
   mostrarPartitura(id);
+  initReseñasForm(); // inicializamos el form
 });
-

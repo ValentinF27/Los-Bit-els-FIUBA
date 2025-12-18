@@ -1,7 +1,7 @@
 -- =========================
 -- TABLA usuarios
 -- =========================
-CREATE TABLE usuarios (
+CREATE TABLE public.usuarios (
   id SERIAL PRIMARY KEY,
   nickname VARCHAR(50) NOT NULL UNIQUE,
   nom_completo VARCHAR(100),
@@ -19,7 +19,7 @@ CREATE TABLE usuarios (
 -- =========================
 -- TABLA partituras
 -- =========================
-CREATE TABLE partituras (
+CREATE TABLE public.partituras (
   id SERIAL PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
   usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
@@ -39,7 +39,7 @@ CREATE TABLE partituras (
 -- =========================
 -- TABLA reseñas
 -- =========================
-CREATE TABLE reseñas (
+CREATE TABLE public."reseñas" (
   id SERIAL PRIMARY KEY,
   usuario_id INTEGER NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
   partitura_id INTEGER NOT NULL REFERENCES partituras(id) ON DELETE CASCADE,
@@ -54,7 +54,7 @@ CREATE TABLE reseñas (
 -- USUARIOS (DATOS DE PRUEBA)
 -- =========================
 
-INSERT INTO usuarios
+INSERT INTO public.usuarios
 ( nickname, nom_completo, email, "contraseña", telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero, fecha_creacion)
 VALUES
 ('OscarRock123', 'Oscar Perez', 'oscarcito@mail.com', 'topsecret', '1145437127', 'CABA, Argentina', 'Guitarra', 'Punk', '1998-04-12', 'M', '2025-12-14 23:53:04'),
@@ -107,8 +107,7 @@ VALUES
 -- USUARIOS (DATOS DE PRUEBA)
 -- =========================
 
-
-INSERT INTO partituras
+INSERT INTO public.partituras
 (nombre, usuario_id, pdf, audio, artista, genero, instrumento, nivel, duracion, descripcion, fecha_creacion, fecha_modificacion, imagen)
 VALUES
 ('Don''t Stop Me Now', 1, '/media/pdfs/dont_stop_me_now_queen.pdf', '/media/audios/dont_stop_me_now_queen.mp3', 'Queen', 'Rock', 'Piano', 'Fácil', '3:35',
@@ -138,7 +137,7 @@ VALUES
 ('Scar Tissue', 18, '/media/pdfs/scar_tissue_rhcp.pdf', '/media/audios/scar_tissue_rhcp.mp3', 'Red Hot Chili Peppers', 'Rock Indie', 'Guitarra', 'Dificil', '3:32', 
  'Les dejo otra joya de los Chili, que la disfruten!','2025-12-17 17:31:50', '2025-12-17 17:31:50', '/media/imagenes/rhcp.jpg' ),
 
-('The Simpsons', 44, '/media/pdfs/simpsons.pdf', '/media/audios/simpsons.mp3', 'The Simpsons', 'Tema Principal', 'Piano', 'Fácil', '2:33', 
+('The Simpsons', 40, '/media/pdfs/simpsons.pdf', '/media/audios/simpsons.mp3', 'The Simpsons', 'Tema Principal', 'Piano', 'Fácil', '2:33', 
  'Un gran tema que todos conocen, ideal para principiantes que esten aprendiendo','2025-12-17 18:00:02', '2025-12-17 18:00:02', '/media/imagenes/simpsons.jpg' ),
 
 ('Wonderwall', 30, '/media/pdfs/wonderwall_oasis.pdf', '/media/audios/wonderwall_oasis.mp3', 'Oasis', 'Rock', 'Piano', 'Intermedia', '4:15', 
@@ -194,97 +193,43 @@ VALUES
 -- RESEÑAS (DATOS DE PRUEBA)
 -- =========================
 
-INSERT INTO "reseñas"
+INSERT INTO public."reseñas"
 (usuario_id, partitura_id, titulo, contenido, estrellas, fecha_creacion, fecha_modificacion)
 VALUES
 (3, 1, 'Falta práctica','Varios errores en la parte final. Buen intento para esta versión de principiantes, pero hay espacio para mejoras.',2, '2025-12-16 05:18:12', '2025-12-16 05:18:12'),
-
 (3, 2, 'Buen trabajo','Pequeños errores no devalúan esta gran composición. Enhorabuena!',4, '2025-12-16 05:23:09', '2025-12-16 05:23:09'),
-
 (2, 1, 'Que nostalgia','Una de las canciones favoritas de mis padres. Disfruté mucho aprenderla.',5, '2025-12-16 05:25:35', '2025-12-16 05:25:35'),
-
 (4,1,'Muy buena para empezar','Partitura clara y bien ordenada, ideal si recién arrancás.',5,'2025-12-18 10:15:17','2025-12-18 10:15:17'),
-
 (7,3,'Esperaba más','No está mal, pero el solo podría estar mejor explicado.',3,'2025-12-18 10:18:17','2025-12-18 10:18:17'),
-
 (12,4,'Excelente arreglo','Muy fiel al tema original, se disfruta mucho tocarla.',5,'2025-12-18 10:21:17','2025-12-18 10:21:17'),
-
 (18,7,'Algo confusa','Algunas partes no se entienden bien a primera vista.',2,'2025-12-18 10:24:17','2025-12-18 10:24:17'),
-
 (10,8,'Buen nivel','Tiene su dificultad justa, ideal para nivel intermedio.',4,'2025-12-18 10:27:17','2025-12-18 10:27:17'),
-
 (22,5,'Temazo mal adaptado','El tema es increíble pero la adaptación no me convenció.',2,'2025-12-18 10:30:17','2025-12-18 10:30:17'),
-
 (27,6,'Hermosa versión','Funciona perfecto en piano, muy emotiva.',5,'2025-12-18 10:33:17','2025-12-18 10:33:17'),
-
 (6,11,'Cumple','No es espectacular, pero sirve para tocar el tema.',3,'2025-12-18 10:36:17','2025-12-18 10:36:17'),
-
 (33,20,'Muy exigente','Demasiado difícil para lo que indica la descripción.',2,'2025-12-18 10:39:17','2025-12-18 10:39:17'),
-
 (16,18,'Buen groove','Está bien llevada y suena muy bien.',4,'2025-12-18 10:42:17','2025-12-18 10:42:17'),
-
 (19,17,'No me gustó','La transcripción no coincide mucho con el original.',1,'2025-12-18 10:45:17','2025-12-18 10:45:17'),
-
 (30,10,'Interesante','Una forma distinta de tocar el tema.',4,'2025-12-18 10:48:17','2025-12-18 10:48:17'),
-
 (24,14,'Muy divertida','Ideal para practicar ritmo y coordinación.',5,'2025-12-18 10:51:17','2025-12-18 10:51:17'),
-
 (10,12,'Regular','Está bien, pero podría estar mejor detallada.',3,'2025-12-18 10:54:17','2025-12-18 10:54:17'),
-
 (40,25,'Excelente','Muy bien escrita, se disfruta mucho tocarla.',5,'2025-12-18 10:57:17','2025-12-18 10:57:17'),
-
 (22,24,'No es para mí','No me convenció el arreglo elegido.',2,'2025-12-18 11:00:17','2025-12-18 11:00:17'),
-
 (6,19,'Gran tema','Bien adaptado y fácil de seguir.',4,'2025-12-18 11:03:17','2025-12-18 11:03:17'),
-
 (33,21,'Muy floja','Le faltan indicaciones importantes.',1,'2025-12-18 11:06:17','2025-12-18 11:06:17'),
-
 (16,16,'Correcta','Cumple su función sin destacar.',3,'2025-12-18 11:09:17','2025-12-18 11:09:17'),
-
 (18,9,'Ideal principiantes','Muy simple y clara.',5,'2025-12-18 11:12:17','2025-12-18 11:12:17'),
-
 (27,2,'Algo básica','Esperaba un poco más de complejidad.',3,'2025-12-18 11:15:17','2025-12-18 11:15:17'),
-
 (12,15,'Muy recomendable','Perfecta para mejorar técnica.',5,'2025-12-18 11:18:17','2025-12-18 11:18:17'),
-
 (24,13,'Difícil de seguir','La batería no está bien marcada.',2,'2025-12-18 11:21:17','2025-12-18 11:21:17'),
-
-(19,26,'Gran adaptación','Suena excelente en piano.',5,'2025-12-18 11:24:17','2025-12-18 11:24:17'),
-
+(19,25,'Gran adaptación','Suena excelente en piano.',5,'2025-12-18 11:24:17','2025-12-18 11:24:17'),
 (30,23,'Aceptable','No destaca pero tampoco molesta.',3,'2025-12-18 11:27:17','2025-12-18 11:27:17'),
-
 (7,22,'Buen desafío','Requiere práctica, pero vale la pena.',4,'2025-12-18 11:30:17','2025-12-18 11:30:17'),
-
 (6,4,'Obra maestra','Una de las mejores del sitio.',5,'2025-12-18 11:33:17','2025-12-18 11:33:17'),
-
 (10,6,'No me convenció','El arreglo no termina de cerrar.',2,'2025-12-18 11:36:17','2025-12-18 11:36:17'),
-
 (22,8,'Muy bien lograda','Buen equilibrio entre dificultad y disfrute.',4,'2025-12-18 11:39:17','2025-12-18 11:39:17'),
-
 (18,5,'Decepcionante','Esperaba algo mucho mejor.',1,'2025-12-18 11:42:17','2025-12-18 11:42:17'),
-
 (16,3,'Sólida','Bien estructurada y clara.',4,'2025-12-18 11:45:17','2025-12-18 11:45:17'),
-
 (33,1,'Perfecta','Ideal para quienes recién empiezan.',5,'2025-12-18 11:48:17','2025-12-18 11:48:17'),
+(27,9,'Demasiado simple','Se queda corta para mi nivel.',2,'2025-12-18 11:51:17','2025-12-18 11:51:17');
 
-(27,9,'Demasiado simple','Se queda corta para mi nivel.',2,'2025-12-18 11:51:17','2025-12-18 11:51:17'),
-
-(40,26,'Excelente cierre','Muy buena para tocar tranquilo.',5,'2025-12-18 11:54:17','2025-12-18 11:54:17'),
-
-(14,18,'Confusa','No se entiende bien la estructura.',2,'2025-12-18 11:57:17','2025-12-18 11:57:17'),
-
-(21,7,'Muy buena','Me sorprendió lo bien que suena.',4,'2025-12-18 12:00:17','2025-12-18 12:00:17'),
-
-(9,12,'Mala experiencia','Tiene varios errores.',1,'2025-12-18 12:03:17','2025-12-18 12:03:17'),
-
-(28,14,'Excelente','Muy bien pensada para practicar.',5,'2025-12-18 12:06:17','2025-12-18 12:06:17'),
-
-(31,20,'Difícil','No coincide con el nivel indicado.',2,'2025-12-18 12:09:17','2025-12-18 12:09:17'),
-
-(35,23,'Correcta','Nada fuera de lo común.',3,'2025-12-18 12:12:17','2025-12-18 12:12:17'),
-
-(38,25,'Muy buena','Gran adaptación.',4,'2025-12-18 12:15:17','2025-12-18 12:15:17'),
-
-(41,4,'Excelente aporte','Una joyita.',5,'2025-12-18 12:18:17','2025-12-18 12:18:17'),
-
-(42,8,'No recomendable','No me gustó para nada.',1,'2025-12-18 12:21:17','2025-12-18 12:21:17');
