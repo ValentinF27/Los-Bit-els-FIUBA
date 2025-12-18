@@ -44,3 +44,22 @@ router.post("/", async (req, res) => {
       birth,
       gender
     } = req.body;
+
+    // Validación mínima
+    if (!nickname || !email || !password) {
+      return res.status(400).json({
+        error: "Nickname, email y password son obligatorios"
+      });
+    }
+
+    // Verificar duplicados
+    const exists = await pool.query(
+      "SELECT id FROM usuarios WHERE email = $1 OR nickname = $2",
+      [email, nickname]
+    );
+
+    if (exists.rows.length > 0) {
+      return res.status(409).json({
+        error: "Email o nickname ya registrado"
+      });
+    }
