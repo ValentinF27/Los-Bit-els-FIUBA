@@ -130,3 +130,39 @@
     </div>
   </div>
 </section>
+
+    <!-- JS -->
+<script type="module">
+  const form = document.getElementById('create-user-form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form));
+
+    try {
+      const res = await fetch('http://localhost:3000/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        alert('Usuario creado correctamente');
+        form.reset();
+      } else {
+        alert(result.error || 'Error al crear usuario');
+      }
+    } catch (err) {
+      alert('No se pudo conectar con el servidor');
+      console.error(err);
+    }
+  });
+</script>
+
+  </body>
+</html>
