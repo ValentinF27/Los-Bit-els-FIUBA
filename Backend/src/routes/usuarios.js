@@ -28,3 +28,19 @@ router.get("/:id", async (req, res) => {
 });
 
 export default router;
+
+/* POST CREAR USUARIO */
+router.post("/", async (req, res) => {
+  try {
+    const {
+      nickname,
+      name,
+      email,
+      password,
+      phone,
+      location,
+      instruments,
+      genres,
+      birth,
+      gender
+    } = req.body;
