@@ -107,7 +107,6 @@ VALUES
 -- USUARIOS (DATOS DE PRUEBA)
 -- =========================
 
-
 INSERT INTO public.partituras
 (nombre, usuario_id, pdf, audio, artista, genero, instrumento, nivel, duracion, descripcion, fecha_creacion, fecha_modificacion, imagen)
 VALUES
@@ -233,5 +232,4 @@ VALUES
 (16,3,'Sólida','Bien estructurada y clara.',4,'2025-12-18 11:45:17','2025-12-18 11:45:17'),
 (33,1,'Perfecta','Ideal para quienes recién empiezan.',5,'2025-12-18 11:48:17','2025-12-18 11:48:17'),
 (27,9,'Demasiado simple','Se queda corta para mi nivel.',2,'2025-12-18 11:51:17','2025-12-18 11:51:17');
-
 
