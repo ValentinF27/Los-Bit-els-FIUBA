@@ -25,15 +25,23 @@
         </a>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Log out</strong>
-            </a>
+        <!-- Manejo de sesión -->
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary" id="signup-btn">
+                Sign up
+              </a>
+              <!-- Link a Login -->
+              <a class="button is-light" id="login-btn" href="./login.html">
+                Log in
+              </a>
+              <a class="button is-primary" id="logout-btn">
+                Log out
+              </a>
+            </div>
           </div>
         </div>
-      </div>
     </nav>
 
     <!-- Sección de Usuario -->
@@ -80,8 +88,26 @@
       </div>
     </section>
 
-    <!-- Script JS -->
-    <script type="module" src="js/usuario.js"></script>
+      <!-- Script JS -->
+      <script type="module" src="js/usuario.js"></script>
+
+        <!-- Script de cerrar sesión -->
+        <script type="module">
+          import { logout } from "./js/auth.js";
+
+          const logoutBtn = document.getElementById("logout-btn");
+
+          if (logoutBtn) {
+            logoutBtn.addEventListener("click", logout);
+          }
+        </script>
+
+        <!-- Script de ver botones de inicio/cierre de sesión -->
+        <script type="module">
+          import { initAuthUI } from "./js/auth.js";
+
+          initAuthUI();
+        </script>
 
   </body>
 </html>
