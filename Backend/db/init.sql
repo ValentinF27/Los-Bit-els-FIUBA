@@ -124,72 +124,71 @@ VALUES
  '2025-12-16 18:36:35', '2025-12-16 18:36:35', '/media/imagenes/acdc.jpg'),
 
 ('Bohemian Rhapsody', 12, '/media/pdfs/bohemian_rhapsody_queen.pdf', '/media/audios/bohemian_rhapsody_queen.mp3', 'Queen', 'Rock', 'Piano', 'Fácil', '5:40',
- 'Gran tema con un gran trasfondo, espero les sirva','2025-12-17 17:23:22', '2025-12-17 17:23:22', '/media/imagenes/queen.jpg' )
+ 'Gran tema con un gran trasfondo, espero les sirva','2025-12-17 17:23:22', '2025-12-17 17:23:22', '/media/imagenes/queen.jpg' ),
 
 ('Feel Good Inc.', 27, '/media/pdfs/feel_good_inc_gorillaz.pdf', '/media/audios/feel_good_inc_gorillaz.mp3', 'Gorillaz', 'Rock Alternativo', 'Guitarra', 'Fácil', '3:41', 
- 'Una masa de tema, de lo mejorcito del 2005','2025-12-17 17:25:52', '2025-12-17 17:25:52', '/media/imagenes/gorillaz.jpg' )
+ 'Una masa de tema, de lo mejorcito del 2005','2025-12-17 17:25:52', '2025-12-17 17:25:52', '/media/imagenes/gorillaz.jpg' ),
 
 ('Imagine', 27, '/media/pdfs/imagine_john_lennon.pdf', '/media/audios/imagine_john_lennon.mp3', 'John Lennon', 'Soft Rock', 'Piano', 'Intermedia', '3:05', 
- 'El mejor tema, del mejor de todos','2025-12-17 17:21:52', '2025-12-17 17:21:52', '/media/imagenes/john_lennon.jpg' )
+ 'El mejor tema, del mejor de todos','2025-12-17 17:21:52', '2025-12-17 17:21:52', '/media/imagenes/john_lennon.jpg' ),
 
 ('Under The Bridge', 18, '/media/pdfs/under_the_bridge_rhcp.pdf', '/media/audios/under_the_bridge_rhcp.mp3', 'Red Hot Chili Peppers', 'Rock Indie', 'Guitarra', 'Intermedia', '4:30', 
- 'Aguante los Chili y aguante el rockk!!!!','2025-12-17 17:30:52', '2025-12-17 17:30:52', '/media/imagenes/rhcp.jpg' )
+ 'Aguante los Chili y aguante el rockk!!!!','2025-12-17 17:30:52', '2025-12-17 17:30:52', '/media/imagenes/rhcp.jpg' ),
 
 ('Scar Tissue', 18, '/media/pdfs/scar_tissue_rhcp.pdf', '/media/audios/scar_tissue_rhcp.mp3', 'Red Hot Chili Peppers', 'Rock Indie', 'Guitarra', 'Dificil', '3:32', 
- 'Les dejo otra joya de los Chili, que la disfruten!','2025-12-17 17:31:50', '2025-12-17 17:31:50', '/media/imagenes/rhcp.jpg' )
+ 'Les dejo otra joya de los Chili, que la disfruten!','2025-12-17 17:31:50', '2025-12-17 17:31:50', '/media/imagenes/rhcp.jpg' ),
 
 ('The Simpsons', 44, '/media/pdfs/simpsons.pdf', '/media/audios/simpsons.mp3', 'The Simpsons', 'Tema Principal', 'Piano', 'Fácil', '2:33', 
- 'Un gran tema que todos conocen, ideal para principiantes que esten aprendiendo','2025-12-17 18:00:02', '2025-12-17 18:00:02', '/media/imagenes/simpsons.jpg' )
+ 'Un gran tema que todos conocen, ideal para principiantes que esten aprendiendo','2025-12-17 18:00:02', '2025-12-17 18:00:02', '/media/imagenes/simpsons.jpg' ),
 
 ('Wonderwall', 30, '/media/pdfs/wonderwall_oasis.pdf', '/media/audios/wonderwall_oasis.mp3', 'Oasis', 'Rock', 'Piano', 'Intermedia', '4:15', 
- 'BECAUSE MAYBE YOU\'RE GONNA BE THE ONE THAT SAVES MEAND AFTER ALL YOU ARE MY WONDERWALL','2025-12-17 18:05:42', '2025-12-17 18:05:42', '/media/imagenes/oasis.jpg' )
+ 'BECAUSE MAYBE YOU\'RE GONNA BE THE ONE THAT SAVES MEAND AFTER ALL YOU ARE MY WONDERWALL','2025-12-17 18:05:42', '2025-12-17 18:05:42', '/media/imagenes/oasis.jpg' ),
 
 ('Never Gonna Give You Up', 6, '/media/pdfs/never_gonna_give_you_up_rick_astley.pdf', '/media/audios/never_gonna_give_you_up_rick_astley.mp3', 'Rick Astley', 'Pop', 
-'Piano', 'Intermedia', '3:16', 'Gran tema, para que puedan rickrollear a quien les plazca','2025-12-17 18:30:52', '2025-12-17 18:30:52', '/media/imagenes/rick_astley.jpg' )
+'Piano', 'Intermedia', '3:16', 'Gran tema, para que puedan rickrollear a quien les plazca','2025-12-17 18:30:52', '2025-12-17 18:30:52', '/media/imagenes/rick_astley.jpg' ),
 
 ('Clint Eastwood', 10, '/media/pdfs/clint_eastwood_gorillaz.pdf', '/media/audios/clint_eastwood_gorillaz.mp3', 'Gorillaz', 'Rock Alternativo', 
-'Bateria', 'Intermedia', '5:44', 'Les dejo este temazo que no salia de mi mp3','2025-12-17 19:10:52', '2025-12-17 19:10:52', '/media/imagenes/gorillaz.jpg' )
+'Bateria', 'Intermedia', '5:44', 'Les dejo este temazo que no salia de mi mp3','2025-12-17 19:10:52', '2025-12-17 19:10:52', '/media/imagenes/gorillaz.jpg' ),
 
 ('Smells Like Teen Spirit', 10, '/media/pdfs/smells_like_teen_spirit_nirvana.pdf', '/media/audios/smells_like_teen_spirit_nirvana.mp3', 'Nirvana', 'Rock Alternativo', 
-'Flauta', 'Fácil', '4:52', 'De lo mejor del rock angloparlante, disfruten','2025-12-17 19:15:50', '2025-12-17 19:15:50', '/media/imagenes/nirvana.jpg' )
+'Flauta', 'Fácil', '4:52', 'De lo mejor del rock angloparlante, disfruten','2025-12-17 19:15:50', '2025-12-17 19:15:50', '/media/imagenes/nirvana.jpg' ),
 
 ('Stressed Out', 24, '/media/pdfs/stressed_out_twenty_one_pilots.pdf', '/media/audios/stressed_out_twenty_one_pilots.mp3', 'Twenty One Pilots', 'Rock Indie', 
-'Bateria', 'Intermedio', '3:21', 'Les dejo esta joya de la decada del  2010','2025-12-17 19:20:07', '2025-12-17 19:20:07', '/media/imagenes/twenty_one_pilots.jpg' )
+'Bateria', 'Intermedio', '3:21', 'Les dejo esta joya de la decada del  2010','2025-12-17 19:20:07', '2025-12-17 19:20:07', '/media/imagenes/twenty_one_pilots.jpg' ),
 
 ('Heathens', 24, '/media/pdfs/heathens_twenty_one_pilots.pdf', '/media/audios/heathens_twenty_one_pilots.mp3', 'Twenty One Pilots', 'Rock Indie', 
-'Piano', 'Intermedio', '3:15', 'Aca otro temon de TOP, para los que ya sepan un poco de piano','2025-12-17 19:24:17', '2025-12-17 19:24:17', '/media/imagenes/twenty_one_pilots.jpg' )
+'Piano', 'Intermedio', '3:15', 'Aca otro temon de TOP, para los que ya sepan un poco de piano','2025-12-17 19:24:17', '2025-12-17 19:24:17', '/media/imagenes/twenty_one_pilots.jpg' ),
 
 ('Where Is My Mind', 19, '/media/pdfs/where_is_my_mind_pixies.pdf', '/media/audios/where_is_my_mind_pixies.mp3', 'Pixies (Fight Club)', 'Indie', 
-'Piano', 'Intermedio', '3:49', 'Gran tema de una de mis pelis favoritas','2025-12-17 19:24:57', '2025-12-17 19:24:57', '/media/imagenes/pixies.jpg' )
+'Piano', 'Intermedio', '3:49', 'Gran tema de una de mis pelis favoritas','2025-12-17 19:24:57', '2025-12-17 19:24:57', '/media/imagenes/pixies.jpg' ),
 
 ('Gangsta Paradise', 16, '/media/pdfs/gangsta_paradise_coolio.pdf', '/media/audios/gangsta_paradise_coolio.mp3', 'Coolio', 'Hip Hop', 
-'Piano', 'Fácil', '4:07', 'Gran tema de la mejor epoca del rap','2025-12-17 19:26:12', '2025-12-17 19:26:12', '/media/imagenes/coolio.jpg' )
+'Piano', 'Fácil', '4:07', 'Gran tema de la mejor epoca del rap','2025-12-17 19:26:12', '2025-12-17 19:26:12', '/media/imagenes/coolio.jpg' ),
 
 ('Still D.R.E', 16, '/media/pdfs/still_dre_snoop_dogg.pdf', '/media/audios/still_dre_snoop_dogg.mp3', 'Snoop Dogg', 'Hip Hop', 
-'Piano', 'Intermedio', '4:30', 'El mejor tema de rap estadounidense por lejos','2025-12-17 19:26:45', '2025-12-17 19:26:45', '/media/imagenes/snoop_dogg.jpg' )
+'Piano', 'Intermedio', '4:30', 'El mejor tema de rap estadounidense por lejos','2025-12-17 19:26:45', '2025-12-17 19:26:45', '/media/imagenes/snoop_dogg.jpg' ),
 
 ('In The End', 6, '/media/pdfs/in_the_end_linkin_park.pdf', '/media/audios/in_the_end_linkin_park.mp3', 'Linkin Park', 'Rock Alternativo', 
-'Guitarra', 'Fácil', '4:40', 'Dejo un temazo que marco mi adolescencia','2025-12-17 19:27:00', '2025-12-17 19:27:00', '/media/imagenes/linkin_park.jpg' )
+'Guitarra', 'Fácil', '4:40', 'Dejo un temazo que marco mi adolescencia','2025-12-17 19:27:00', '2025-12-17 19:27:00', '/media/imagenes/linkin_park.jpg' ),
 
 ('Numb', 33, '/media/pdfs/numb_linkin_park.pdf', '/media/audios/numb_linkin_park.mp3', 'Linkin Park', 'Rock Alternativo', 
-'Bateria', 'Dificil', '3:12', 'QEPD Bennington','2025-12-17 19:27:40', '2025-12-17 19:27:40', '/media/imagenes/linkin_park.jpg' )
+'Bateria', 'Dificil', '3:12', 'QEPD Bennington','2025-12-17 19:27:40', '2025-12-17 19:27:40', '/media/imagenes/linkin_park.jpg' ),
 
-('What I\'ve done', 33, '/media/pdfs/what_ive_done_linkin_park.pdf', '/media/audios/what_ive_done_linkin_park.mp3', 'Linkin Park', 'Rock Alternativo', 
-'Piano', 'Dificil', '3:25', 'Dejo uno de los temas mas conocidos de probablemente mi banda favorita','2025-12-17 19:27:57', '2025-12-17 19:27:57', '/media/imagenes/linkin_park.jpg' )
+('What I''ve done', 33, '/media/pdfs/what_ive_done_linkin_park.pdf', '/media/audios/what_ive_done_linkin_park.mp3', 'Linkin Park', 'Rock Alternativo', 
+'Piano', 'Dificil', '3:25', 'Dejo uno de los temas mas conocidos de probablemente mi banda favorita','2025-12-17 19:27:57', '2025-12-17 19:27:57', '/media/imagenes/linkin_park.jpg' ),
 
 ('Somewhere I Belong', 33, '/media/pdfs/somewhere_i_belong_linkin_park.pdf', '/media/audios/somewhere_i_belong_linkin_park.mp3', 'Linkin Park', 'Rock Alternativo', 
 'Piano', 'Dificil', '3:33', 'Esta vez les dejo mi tema preferido, de adolescente me identificaba mucho con esta cancion','2025-12-17 19:28:23', '2025-12-17 19:28:23', 
-'/media/imagenes/linkin_park.jpg' )
+'/media/imagenes/linkin_park.jpg' ),
 
 ('On Melancholy Hill', 22, '/media/pdfs/on_melancholy_hill_gorillaz.pdf', '/media/audios/on_melancholy_hill_gorillaz.mp3', 'Gorillaz', 'Rock Alternativo', 
-'Piano', 'Intermedio', '3:44', 'Buenas, traigo un tema intermedio para quienes ya sepan tocar','2025-12-18 10:11:40', '2025-12-18 10:11:40', '/media/imagenes/gorillaz.jpg' )
+'Piano', 'Intermedio', '3:44', 'Buenas, traigo un tema intermedio para quienes ya sepan tocar','2025-12-18 10:11:40', '2025-12-18 10:11:40', '/media/imagenes/gorillaz.jpg' ),
 
 ('Rhinestone Eyes', 22, '/media/pdfs/rhinestone_eyes_gorillaz.pdf', '/media/audios/rhinestone_eyes_gorillaz.mp3', 'Gorillaz', 'Rock Alternativo', 
-'Piano', 'Intermedio', '3:18', 'Dejo otro tema de un album distinto, sigue siendo nivel intermedio, espero les guste','2025-12-18 10:13:30', '2025-12-18 10:13:30', '/media/imagenes/gorillaz.jpg' )
+'Piano', 'Intermedio', '3:18', 'Dejo otro tema de un album distinto, sigue siendo nivel intermedio, espero les guste','2025-12-18 10:13:30', '2025-12-18 10:13:30', '/media/imagenes/gorillaz.jpg' ),
 
 ('Ride', 40, '/media/pdfs/ride_twenty_one_pilots.pdf', '/media/audios/ride_twenty_one_pilots.mp3', 'Twenty One Pilots', 'Rock Indie', 
 'Piano', 'Intermedio', '3:30', 'Un gran tema para quienes ya sepan lo basico del piano','2025-12-18 10:15:17', '2025-12-18 10:15:17', '/media/imagenes/twenty_one_pilots.jpg' );
-
 
 -- =========================
 -- RESEÑAS (DATOS DE PRUEBA)
