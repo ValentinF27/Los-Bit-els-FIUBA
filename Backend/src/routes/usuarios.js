@@ -29,7 +29,9 @@ router.get("/:id", async (req, res) => {
 
 export default router;
 
-/* POST CREAR USUARIO */
+/* =========================
+   POST CREAR USUARIO
+========================= */
 router.post("/", async (req, res) => {
   try {
     const {
@@ -58,7 +60,7 @@ router.post("/", async (req, res) => {
       [email, nickname]
     );
 
-    if (exists.rows.length > 0) {
+     if (exists.rows.length > 0) {
       return res.status(409).json({
         error: "Email o nickname ya registrado"
       });
@@ -67,10 +69,10 @@ router.post("/", async (req, res) => {
     // Encriptar password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Insertar usuario
+    // Insertar usuario con nombres de columnas correctos
     const insert = await pool.query(
       `INSERT INTO usuarios
-        (nickname, nombre, email, password, telefono, ubicacion, instrumento, genero_musical, fecha_nacimiento, genero)
+       (nickname, nom_completo, email, contraseña, telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
        RETURNING id, nickname, email`,
       [
@@ -94,9 +96,11 @@ router.post("/", async (req, res) => {
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "DB error" });
+    res.status(500).json({ error: error.message });
   }
 });
 
 export default router;
+
+
 
