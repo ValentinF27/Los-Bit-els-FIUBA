@@ -208,7 +208,7 @@ async function eliminarPartitura(partituraId) {
 
     if (response.status === 200) {
       alert("La partitura ha sido eliminada correctamente.");
-      window.location.href = "index.html"; // Redirige a la página de inicio.
+      window.location.href = "home.html"; // Redirige a la página de inicio.
     } else {
       alert(result.error || "Error al eliminar la partitura.");
     }
