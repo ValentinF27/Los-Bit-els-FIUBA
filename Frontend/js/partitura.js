@@ -61,8 +61,9 @@ async function mostrarPartitura(id) {
         const botonesReseña = esAutor
           ? `
             <div class="buttons is-right mt-2">
-              <button class="button is-small is-link" id="editarReseña${reseña.id}">
-                Editar
+                <a href="editar_resena.html?id=${reseña.id}" class="button is-small is-link">
+                  Editar
+                </a>
               </button>
               <button class="button is-small is-danger is-light" id="eliminarReseña${reseña.id}">
                 Eliminar
