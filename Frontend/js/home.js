@@ -3,11 +3,13 @@ import {
   getPartiturasPopulares
 } from "./api.js";
 
+// Carga partituras recientes y populares al cargar la página
 document.addEventListener("DOMContentLoaded", async () => {
   cargar("recientes", getPartiturasRecientes);
   cargar("populares", getPartiturasPopulares);
 });
 
+// Carga partituras en el contenedor dado usando la función fetchFn
 async function cargar(idContenedor, fetchFn) {
   const contenedor = document.getElementById(idContenedor);
   if (!contenedor) return;
@@ -20,6 +22,7 @@ async function cargar(idContenedor, fetchFn) {
   }
 }
 
+// Renderiza las partituras en el contenedor dado
 function render(contenedor, partituras) {
   contenedor.innerHTML = "";
 
@@ -50,7 +53,7 @@ function render(contenedor, partituras) {
   });
 }
 
-
+// Genera el HTML para mostrar estrellas según el promedio dado
 function estrellasHTML(promedio) {
   const rating = Math.round(Number(promedio) || 0);
   let html = "";

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-  /* burger */
+  // Navbar burger toggle
   const burger = document.querySelector(".navbar-burger");
   if (burger) {
     const menu = document.getElementById(burger.dataset.target);
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* buscador navbar */
   const input = document.getElementById("navbarInput");
   const button = document.getElementById("navbarBotonBusqueda");
   const dropdown = document.getElementById("navbarDropdown");
@@ -31,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let debounce = null;
 
+  // Maneja la entrada en el campo de búsqueda
   input.addEventListener("input", () => {
     clearTimeout(debounce);
     const texto = input.value.trim();
@@ -51,16 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   });
 
+  // Maneja el Enter y el clic en el botón de búsqueda
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       window.location.href = `busqueda.html?q=${encodeURIComponent(input.value)}`;
     }
   });
 
+  // Maneja el clic en el botón de búsqueda
   button.addEventListener("click", () => {
     window.location.href = `busqueda.html?q=${encodeURIComponent(input.value)}`;
   });
 
+  // Renderiza el dropdown con los resultados
   function renderDropdown(partituras) {
     dropdown.innerHTML = "";
 

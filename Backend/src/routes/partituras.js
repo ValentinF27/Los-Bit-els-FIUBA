@@ -2,7 +2,7 @@ import { Router } from 'express';
 const router = Router();
 import { pool } from "../db.js";
 
-
+// Obtiene partituras populares (promedio de estrellas >= 4)
 router.get("/populares", async (req, res) => {
   const result = await pool.query(`
     SELECT 
@@ -22,7 +22,7 @@ router.get("/populares", async (req, res) => {
   res.json(result.rows);
 });
 
-
+// Obtiene partituras recientes (últimas 4 agregadas)
 router.get("/recientes", async (req, res) => {
   const result = await pool.query(`
     SELECT 
@@ -89,6 +89,8 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
+// Busca partituras por nombre, artista, instrumento o género
 router.get("/", async (req, res) => {
   const { query } = req.query;
 
