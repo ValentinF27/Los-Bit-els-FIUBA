@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./iconos/tab_logo.png">
+    <title>Editar Usuario | Bit-Els</title>
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body class="user-page">
+
+    <!-- Formulario editar usuario -->
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <div class="box">
+              <h2 class="title is-3 has-text-centered">Editar Usuario</h2>
+
+              <!-- Formulario -->
+              <form id="edit-user-form">
+
+                <!-- Nickname -->
+                <div class="field">
+                  <label class="label">Nombre de usuario</label>
+                  <div class="control">
+                    <input class="input" type="text" name="nickname" id="edit-nickname" required>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control">
+                    <input class="input" type="email" name="email" id="edit-email" required>
+                  </div>
+                </div>
+
+                <!-- Botón -->
+                <div class="field mt-5">
+                  <div class="control has-text-centered">
+                    <button class="button is-primary is-medium" type="submit">
+                      Actualizar Usuario
+                    </button>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script type="module" src="./js/editar_usuario.js"></script>
+
+  </body>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Bit-Els</strong> — porque la música también se programa.
+      </p>
+      <p>
+        Desarrollado por <strong>Matías Milocik, Jerónimo Ferraro, Matías Xu y Valentín Fiasche</strong> · Facultad de Ingeniería de la Universidad de Buenos Aires
+      </p>
+      <p class="has-text-grey">
+        📧 Correo: bit-els@music.edu.ar<br>
+        📞 Teléfono: +54 11 4035-0227
+      </p>
+      <p>
+        <a href="home.html">Home</a> · <a href="login.html">Login</a>
+      </p>
+      <p class="is-size-7 has-text-grey">
+        © 2025 Bit-Els — Todos los derechos reservados
+      </p>
+    </div>
+  </footer>
+
+</html>
+
