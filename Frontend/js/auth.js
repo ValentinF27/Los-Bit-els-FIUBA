@@ -4,7 +4,7 @@ export function logout() {
   localStorage.removeItem("usuarioLogueado");
 
   // Redirigimos al inicio.
-  window.location.href = "index.html";
+  window.location.href = "home.html";
 }
 
 // Maneja qué botones mostrar según si hay sesión.
