@@ -120,6 +120,24 @@ async function mostrarPartitura(id) {
       form.insertAdjacentElement("afterend", p);
     }
 
+    // Mostrar los botones de editar y eliminar partituras si su usuario esta loggeado.
+    if (usuarioLogueado && usuarioLogueado.id === partitura.usuario_id) {
+      document.querySelector(".button.is-link").style.display = "inline-block";   // Botón editar
+      document.querySelector(".button.is-danger").style.display = "inline-block";  // Botón eliminar
+
+      // Llamar a la función para manejar el evento de eliminar
+      document.querySelector(".button.is-danger").addEventListener("click", async () => {
+        const confirmar = confirm("¿Estás seguro de que deseas eliminar esta partitura?");
+        if (confirmar) {
+          await eliminarPartitura(partitura.id); // Llamada al backend para eliminar la partitura
+        }
+      });
+    } else {
+      // Si no es el id asociado, ocultamos los botones.
+      document.querySelector(".button.is-link").style.display = "none";
+      document.querySelector(".button.is-danger").style.display = "none";
+    }
+
     } catch (error) {
     console.error(error);
     alert("No se pudo cargar la partitura");
@@ -155,6 +173,43 @@ function initReseñasForm() {
     form.reset();
     alert("Reseña enviada correctamente");
   });
+}
+
+// Función para eliminar la partitura
+async function eliminarPartitura(partituraId) {
+  try {
+    const usuarioLogueado = getUsuarioLogueado();
+    if (!usuarioLogueado) {
+      return alert("Debes iniciar sesión para eliminar la partitura.");
+    }
+
+    // Mostrar confirmación antes de eliminar
+    const confirmar = confirm("¿Estás seguro de que deseas eliminar esta partitura? Esta acción no se puede deshacer.");
+    if (!confirmar) {
+      return; // Si el usuario cancela, no hacemos nada.
+    }
+
+    // Enviar solicitud DELETE al backend para eliminar la partitura
+    const response = await fetch(`http://localhost:3000/api/partituras/${partituraId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ usuario_id: usuarioLogueado.id }), // Enviamos el ID del usuario logueado para verificar la autorización
+    });
+
+    const result = await response.json();
+
+    if (response.status === 200) {
+      alert("La partitura ha sido eliminada correctamente.");
+      window.location.href = "index.html"; // Redirige a la página de inicio.
+    } else {
+      alert(result.error || "Error al eliminar la partitura.");
+    }
+  } catch (error) {
+    console.error("Error al eliminar la partitura:", error);
+    alert("Hubo un error al eliminar la partitura.");
+  }
 }
 
 // Ejecutamos al cargar la página.
