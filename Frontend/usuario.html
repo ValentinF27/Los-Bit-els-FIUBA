@@ -101,7 +101,14 @@
           <p><strong>Ubicación:</strong> <span id="location"></span></p>
           <p><strong>Instrumento:</strong> <span id="instruments"></span></p>
           <p><strong>Género preferido:</strong> <span id="genres"></span></p>
+          <!-- Botones para editar y eliminar el usuario (por defecto ocultos) -->
+            <!-- Botón Editar -->
+            <a href="#" id="edit-user-btn" class="button is-info" style="display: none;">Editar</a>
+
+            <!-- Botón Eliminar -->
+            <button id="delete-user-btn" class="button is-danger" style="display: none;">Eliminar</button>
         </div>
+
 
         <!-- Tarjetas de partituras -->
         <h3 class="title is-4 mt-6">Partituras subidas</h3>
@@ -123,9 +130,10 @@
       </div>
     </section>
 
-      <script type="module" src="./js/navbar.js"></script>
       <!-- Script JS -->
       <script type="module" src="js/usuario.js"></script>
+      
+      <script type="module" src="./js/navbar.js"></script>
 
         <!-- Script de cerrar sesión -->
         <script type="module">
@@ -162,7 +170,7 @@
       </p>
 
       <p>
-        <a href="index.html">Home</a>
+        <a href="home.html">Home</a>
         ·
         <a href="login.html">Login</a>
       </p>
