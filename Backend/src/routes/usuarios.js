@@ -78,9 +78,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-/* =========================
-   POST CREAR USUARIO
-========================= */
+// Crear usuario.
 router.post("/", async (req, res) => {
   try {
     const {
@@ -96,14 +94,14 @@ router.post("/", async (req, res) => {
       gender
     } = req.body;
 
-    // Validación mínima
+    // Validación mínima.
     if (!nickname || !email || !password) {
       return res.status(400).json({
         error: "Nickname, email y password son obligatorios"
       });
     }
 
-    // Verificar duplicados
+    // Verificar duplicados.
     const exists = await pool.query(
       "SELECT id FROM usuarios WHERE email = $1 OR nickname = $2",
       [email, nickname]
@@ -115,20 +113,17 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Encriptar password
-    const hashedPassword = await bcrypt.hash(password, 10);
-
     // Insertar usuario con nombres de columnas correctos
     const insert = await pool.query(
       `INSERT INTO usuarios
-       (nickname, nom_completo, email, contraseña, telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero)
+       (nickname, nom_completo, email, "contraseña", telefono, ubicacion, instrumento, genero_fav, fecha_nacimiento, genero)
        VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)
        RETURNING id, nickname, email`,
       [
         nickname,
         name || null,
         email,
-        hashedPassword,
+        password,
         phone || null,
         location || null,
         instruments || null,
