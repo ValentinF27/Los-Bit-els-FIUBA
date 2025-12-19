@@ -131,63 +131,44 @@ router.put("/:id", async (req, res) => {
   const { nombre, artista, genero, instrumento, nivel, duracion, descripcion, pdf, audio, imagen, usuario_id } = req.body;
 
   try {
-    // Verificar que la partitura existe.
+    // Verificar que la partitura existe
     const partituraResult = await pool.query("SELECT * FROM partituras WHERE id = $1", [id]);
     if (partituraResult.rows.length === 0) {
       return res.status(404).json({ error: "Partitura no encontrada" });
     }
 
-    // Verificar que el usuario logueado es el propietario de la partitura.
+    // Verificar que el usuario logueado es el propietario de la partitura
     const partitura = partituraResult.rows[0];
     if (partitura.usuario_id !== usuario_id) {
       return res.status(403).json({ error: "No tienes permisos para actualizar esta partitura" });
     }
 
-    // Construir la parte del SET para la consulta (solo los campos enviados).
+    // Construir la parte del SET para la consulta (solo los campos enviados)
     const fieldsToUpdate = [];
     const values = [];
 
-    // Solo agregamos los campos que fueron enviados
-    if (nombre) {
-      fieldsToUpdate.push("nombre = $1");
-      values.push(nombre);
-    }
-    if (artista) {
-      fieldsToUpdate.push("artista = $2");
-      values.push(artista);
-    }
-    if (genero) {
-      fieldsToUpdate.push("genero = $3");
-      values.push(genero);
-    }
-    if (instrumento) {
-      fieldsToUpdate.push("instrumento = $4");
-      values.push(instrumento);
-    }
-    if (nivel) {
-      fieldsToUpdate.push("nivel = $5");
-      values.push(nivel);
-    }
-    if (duracion) {
-      fieldsToUpdate.push("duracion = $6");
-      values.push(duracion);
-    }
-    if (descripcion) {
-      fieldsToUpdate.push("descripcion = $7");
-      values.push(descripcion);
-    }
-    if (pdf) {
-      fieldsToUpdate.push("pdf = $8");
-      values.push(pdf);
-    }
-    if (audio) {
-      fieldsToUpdate.push("audio = $9");
-      values.push(audio);
-    }
-    if (imagen) {
-      fieldsToUpdate.push("imagen = $10");
-      values.push(imagen);
-    }
+    let valueIndex = 1;  // El índice de los valores en el SQL empieza en 1
+
+    // Si el campo es undefined (es decir, no se envió en la solicitud), lo dejamos intacto
+    // Si el campo es null, lo agregamos con null a la consulta
+    const addFieldToUpdate = (fieldName, value) => {
+      if (value !== undefined) {
+        fieldsToUpdate.push(`${fieldName} = $${valueIndex}`);
+        values.push(value === null ? null : value); // Si el valor es null, lo pasamos como null en la consulta SQL
+        valueIndex++;
+      }
+    };
+
+    addFieldToUpdate("nombre", nombre);
+    addFieldToUpdate("artista", artista);
+    addFieldToUpdate("genero", genero);
+    addFieldToUpdate("instrumento", instrumento);
+    addFieldToUpdate("nivel", nivel);
+    addFieldToUpdate("duracion", duracion);
+    addFieldToUpdate("descripcion", descripcion);
+    addFieldToUpdate("pdf", pdf);
+    addFieldToUpdate("audio", audio);
+    addFieldToUpdate("imagen", imagen);
 
     // Si no se proporciona ningún dato para actualizar
     if (fieldsToUpdate.length === 0) {
@@ -202,7 +183,7 @@ router.put("/:id", async (req, res) => {
     const updateQuery = `
       UPDATE partituras
       SET ${fieldsToUpdate.join(", ")}
-      WHERE id = $${values.length}
+      WHERE id = $${valueIndex}
       RETURNING *`;
 
     // Ejecutar la consulta
