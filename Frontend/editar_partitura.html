@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="./iconos/tab_logo.png">
+  <title>Editar Partitura | Bit-els</title>
+  <!-- Bulma -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="user-page">
+
+  <!-- Formulario para editar partitura -->
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-half">
+
+          <div class="box">
+            <h2 class="title is-3 has-text-centered">Editar Partitura</h2>
+
+            <form id="edit-partitura-form">
+              <!-- Nombre -->
+              <div class="field">
+                <label class="label">Nombre</label>
+                <div class="control">
+                  <input class="input" type="text" id="edit-nombre" value="" placeholder="Nombre de la partitura">
+                </div>
+              </div>
+
+              <!-- Artista -->
+              <div class="field">
+                <label class="label">Artista</label>
+                <div class="control">
+                  <input class="input" type="text" id="edit-artista" value="" placeholder="Artista">
+                </div>
+              </div>
+
+              <!-- Género -->
+              <div class="field">
+                <label class="label">Género</label>
+                <div class="control">
+                  <input class="input" type="text" id="edit-genero" value="" placeholder="Género">
+                </div>
+              </div>
+
+              <!-- Instrumento -->
+              <div class="field">
+                <label class="label">Instrumento</label>
+                <div class="control">
+                  <input class="input" type="text" id="edit-instrumento" value="" placeholder="Instrumento">
+                </div>
+              </div>
+
+              <!-- Nivel -->
+              <div class="field">
+                <label class="label">Nivel</label>
+                <div class="control">
+                  <input class="input" type="text" id="edit-nivel" value="" placeholder="Nivel">
+                </div>
+              </div>
+
+              <!-- Duración -->
+              <div class="field">
+                <label class="label">Duración</label>
+                <div class="control">
+                  <input class="input" type="text" id="edit-duracion" value="" placeholder="Duración">
+                </div>
+              </div>
+
+              <!-- Descripción -->
+              <div class="field">
+                <label class="label">Descripción</label>
+                <div class="control">
+                  <textarea class="textarea" id="edit-descripcion" placeholder="Descripción"></textarea>
+                </div>
+              </div>
+
+              <!-- PDF -->
+              <div class="field">
+                <label class="label">Ruta del PDF</label>
+                <div class="control">
+                  <input type="text" id="edit-pdf" class="input" placeholder="Ruta del archivo PDF">
+                </div>
+              </div>
+
+              <!-- Audio -->
+              <div class="field">
+                <label class="label">Ruta del Audio</label>
+                <div class="control">
+                  <input type="text" id="edit-audio" class="input" placeholder="Ruta del archivo de audio">
+                </div>
+              </div>
+
+              <!-- Imagen -->
+              <div class="field">
+                <label class="label">Ruta de la Imagen</label>
+                <div class="control">
+                  <input type="text" id="edit-imagen" class="input" placeholder="Ruta de la imagen">
+                </div>
+              </div>
+
+              <!-- Botón para guardar -->
+              <div class="control mt-3">
+                <button class="button is-success">Actualizar Partitura</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script type="module" src="./js/editar_partitura.js"></script>
+
+</body>
+    <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>BIT-ELS</strong> — Donde las partituras encuentran oídos curiosos.
+      </p>
+
+      <p>
+        Desarrollado por <strong>Matías Milocik, Jerónimo Ferraro, Matías Xu y Valentín Fiasche</strong> · Facultad de Ingeniería de la Universidad de Buenos Aires
+      </p>
+
+      <p class="has-text-grey">
+        📧 Correo: bit-els@music.edu.ar<br>
+        📞 Teléfono: +54 11 4035-0227
+      </p>
+
+      <p>
+        <a href="index.html">Home</a>
+        ·
+        <a href="login.html">Login</a>
+      </p>
+
+      <p class="is-size-7 has-text-grey">
+        © 2025 Bit-els — Todos los derechos reservados
+      </p>
+
+      <div class="easter-egg">
+        <a href="https://youtu.be/OA3tnx5GFVA?si=tArjYSQrVA3kUGS_"
+          target="_blank">
+            ♪
+        </a>
+      </div>
+
+    </div>
+  </footer>
+</html>
+
