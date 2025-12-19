@@ -2,7 +2,47 @@ import { Router } from 'express';
 const router = Router();
 import { pool } from "../db.js";
 
-// Muestra partitura.
+// Obtiene partituras populares (promedio de estrellas >= 4)
+router.get("/populares", async (req, res) => {
+  const result = await pool.query(`
+    SELECT 
+      p.id,
+      p.nombre,
+      p.artista,
+      p.imagen,
+      ROUND(COALESCE(AVG(r.estrellas), 0), 1) AS promedio_estrellas
+    FROM partituras p
+    LEFT JOIN reseñas r ON r.partitura_id = p.id
+    GROUP BY p.id
+    HAVING AVG(r.estrellas) >= 4
+    ORDER BY MAX(r.fecha_creacion) DESC
+    LIMIT 4
+  `);
+
+  res.json(result.rows);
+});
+
+// Obtiene partituras recientes (últimas 4 agregadas)
+router.get("/recientes", async (req, res) => {
+  const result = await pool.query(`
+    SELECT 
+      p.id,
+      p.nombre,
+      p.artista,
+      p.imagen,
+      ROUND(COALESCE(AVG(r.estrellas), 0), 1) AS promedio_estrellas
+    FROM partituras p
+    LEFT JOIN reseñas r ON r.partitura_id = p.id
+    GROUP BY p.id
+    ORDER BY p.fecha_creacion DESC
+    LIMIT 4
+  `);
+
+  res.json(result.rows);
+});
+
+
+
 router.get("/:id", async (req, res) => {
   try {
     // Tomamos el id de la partitura desde la URL.
@@ -49,4 +89,32 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+
+// Busca partituras por nombre, artista, instrumento o género
+router.get("/", async (req, res) => {
+  const { query } = req.query;
+
+  const result = await pool.query(
+    `SELECT p.id,
+       p.nombre,
+       p.artista,
+       p.genero,
+       p.instrumento,
+       p.imagen,
+       ROUND(COALESCE(AVG(reseñas.estrellas), 0), 1) AS promedio_estrellas
+    FROM partituras p
+    LEFT JOIN reseñas ON reseñas.partitura_id = p.id
+    WHERE nombre ILIKE $1
+      OR artista ILIKE $1
+      OR instrumento ILIKE $1
+      OR genero ILIKE $1
+    GROUP BY p.id, p.nombre, p.artista, p.genero, p.instrumento, p.imagen
+    ORDER BY promedio_estrellas DESC NULLS LAST`,
+    [`%${query}%`]
+  );
+
+  res.json(result.rows);
+});
+
+  
 export default router;
