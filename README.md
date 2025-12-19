@@ -38,7 +38,7 @@ Tabla `usuarios`:
 
 **CRUD**
 - **Create**: registrar un nuevo usuario.
-- **Read**: obtener todos los usuarios o un usuario por ID.
+- **Read**: ver perfil de usuarios.
 - **Update**: modificar datos de un usuario.
 - **Delete**: eliminar un usuario (también elimina sus partituras y reseñas asociadas).
 
@@ -68,7 +68,7 @@ Tabla `partituras`:
 
 **CRUD**
 - **Create**: subir una nueva partitura.
-- **Read**: listar todas las partituras o consultar una por ID.
+- **Read**: buscar partituras por nombre/artista/genero/instrumento y ver información.
 - **Update**: modificar la información de una partitura.
 - **Delete**: eliminar una partitura (elimina sus reseñas asociadas).
 
@@ -92,7 +92,7 @@ Tabla `reseñas`:
 
 **CRUD**
 - **Create**: crear una reseña para una partitura.
-- **Read**: obtener todas las reseñas o una por ID.
+- **Read**: ver reseñas de una partitura.
 - **Update**: editar una reseña existente.
 - **Delete**: eliminar una reseña.
 
@@ -100,6 +100,7 @@ Tabla `reseñas`:
 
 ## Puertos
 - **Backend**: `http://localhost:3000`
+- **Frontend**: `http://localhost:8080/home.html`
 
 ---
 
@@ -116,6 +117,12 @@ make run
 
 # Correr el Frontend
 cd Frontend
-http-server
+npx http-server
+
+# Correr database
+make db
+
+# Entrar a database
+make enter_db
 
 
