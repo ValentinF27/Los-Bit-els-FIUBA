@@ -115,8 +115,6 @@ router.post("/", async (req, res) => {
       });
     }
 
-    // Encriptar password
-    const hashedPassword = await bcrypt.hash(password, 10);
 
     // Insertar usuario con nombres de columnas correctos
     const insert = await pool.query(
@@ -128,7 +126,7 @@ router.post("/", async (req, res) => {
         nickname,
         name || null,
         email,
-        hashedPassword,
+        password,
         phone || null,
         location || null,
         instruments || null,
