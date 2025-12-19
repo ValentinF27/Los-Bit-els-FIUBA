@@ -176,4 +176,37 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+// Crear partitura
+router.post("/", async (req, res) => {
+  const { nombre, artista, genero, instrumento, nivel, duracion, descripcion, pdf, audio, imagen, usuario_id } = req.body;
+
+  try {
+    // Verificar que el usuario esté logueado
+    if (!usuario_id) {
+      return res.status(400).json({ error: "El usuario debe estar logueado para crear una partitura" });
+    }
+
+    // Verificar que los campos obligatorios estén presentes
+    if (!nombre || !pdf) {
+      return res.status(400).json({ error: "Faltan campos obligatorios: nombre o pdf" });
+    }
+
+    // Insertar la nueva partitura
+    const result = await pool.query(
+      `INSERT INTO partituras 
+        (nombre, usuario_id, pdf, audio, artista, genero, instrumento, nivel, duracion, descripcion, imagen)
+        VALUES 
+        ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) 
+        RETURNING *`,
+      [nombre, usuario_id, pdf, audio, artista, genero, instrumento, nivel, duracion, descripcion, imagen]
+    );
+
+    // Retornar la partitura creada
+    res.status(201).json(result.rows[0]);
+  } catch (error) {
+    console.error("Error al crear la partitura:", error);
+    res.status(500).json({ error: "Hubo un error al crear la partitura" });
+  }
+});
+
 export default router;
