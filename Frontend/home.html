@@ -6,15 +6,13 @@
     <!-- Tab_logo -->
     <link rel="icon" type="image/png" href="./iconos/tab_logo.png">
     <!-- Tab_nombre -->
-    <title>Usuario | Bit-els</title>
+    <title>Home | Bit-els</title>
     <!-- import bulma.css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
     <!-- import nuestro css -->
     <link rel="stylesheet" href="./style.css">
   </head>
-
-  <!-- SOLO ESTE BODY, nada más -->
-  <body class="user-page">
+  <body>
 
     <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -65,8 +63,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <!-- Link a Login -->
-              <a class="button is-primary" id="signup-btn" href="./nuevo_usuario.html">
+              <a class="button is-primary" id="signup-btn">
                 Sign up
               </a>
             <!-- Link a Login -->
@@ -82,74 +79,53 @@
       </div>
     </nav>
 
-    <!-- Sección de Usuario -->
+    <!-- PARTITURAS POPULARES -->
     <section class="section">
       <div class="container">
+        <h2 class="title is-3">Partituras populares ⭐</h2>
+        <p class="subtitle is-6">Mejor valoradas por la comunidad</p>
 
-        <!-- Usuario -->
-        <div class="box has-text-centered">
-          <h2 class="title is-3 mt-3" id="username"></h2>
-          <p id="description"></p>
-        </div>
-
-        <!-- Información adicional -->
-        <div class="box mt-5">
-          <h4 class="title is-5">Información adicional</h4>
-          <p><strong>Nombre:</strong> <span id="name"></span></p>
-          <p><strong>Mail:</strong> <span id="email"></span></p>
-          <p><strong>Teléfono:</strong> <span id="phone"></span></p>
-          <p><strong>Ubicación:</strong> <span id="location"></span></p>
-          <p><strong>Instrumento:</strong> <span id="instruments"></span></p>
-          <p><strong>Género preferido:</strong> <span id="genres"></span></p>
-        </div>
-
-        <!-- Tarjetas de partituras -->
-        <h3 class="title is-4 mt-6">Partituras subidas</h3>
-
-        <div class="columns is-multiline" id="partituras-container">
-          <!-- Aca se agregarán dinámicamente las partituras -->
-        </div>
-
-          <!-- Botón para subir nueva partitura -->
-          <div class="column is-one-quarter">
-            <div class="card has-text-centered p-6">
-              <a class="button is-success is-medium" href="crear_partitura.html">
-                <strong>+ Subir nueva partitura</strong>
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <div id="populares" class="columns is-multiline"></div>
       </div>
     </section>
 
-      <script type="module" src="./js/navbar.js"></script>
-      <!-- Script JS -->
-      <script type="module" src="js/usuario.js"></script>
+    <!-- PARTITURAS RECIENTES -->
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-3">Partituras recientes</h2>
+        <p class="subtitle is-6">Explorá las últimas partituras</p>
 
-        <!-- Script de cerrar sesión -->
-        <script type="module">
-          import { logout } from "./js/auth.js";
+        <div id="recientes" class="columns is-multiline"></div>
+      </div>
+    </section>
 
-          const logoutBtn = document.getElementById("logout-btn");
+    <script type="module" src="./js/home.js"></script>
+    <script type="module" src="./js/navbar.js"></script>
+    
+    <!-- Script de cerrar sesión -->
+    <script type="module">
+      import { logout } from "./js/auth.js";
 
-          if (logoutBtn) {
-            logoutBtn.addEventListener("click", logout);
-          }
-        </script>
+      const logoutBtn = document.getElementById("logout-btn");
 
-        <!-- Script de ver botones de inicio/cierre de sesión -->
-        <script type="module">
-          import { initAuthUI } from "./js/auth.js";
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", logout);
+      }
+    </script>
 
-          initAuthUI();
-        </script>
+    <!-- Script de ver botones de inicio/cierre de sesión -->
+    <script type="module">
+      import { initAuthUI } from "./js/auth.js";
+
+      initAuthUI();
+    </script>
 
   </body>
+
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>BIT-ELS</strong> — Porque la música también se programa.
+        <strong>BIT-ELS</strong> — Más notas, menos silencios.
       </p>
 
       <p>
@@ -162,7 +138,7 @@
       </p>
 
       <p>
-        <a href="index.html">Home</a>
+        <a href="home.html">Home</a>
         ·
         <a href="login.html">Login</a>
       </p>
