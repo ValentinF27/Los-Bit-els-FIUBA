@@ -84,4 +84,96 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// Actualiza una partitura
+router.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { nombre, artista, genero, instrumento, nivel, duracion, descripcion, pdf, audio, imagen, usuario_id } = req.body;
+
+  try {
+    // Verificar que la partitura existe.
+    const partituraResult = await pool.query("SELECT * FROM partituras WHERE id = $1", [id]);
+    if (partituraResult.rows.length === 0) {
+      return res.status(404).json({ error: "Partitura no encontrada" });
+    }
+
+    // Verificar que el usuario logueado es el propietario de la partitura.
+    const partitura = partituraResult.rows[0];
+    if (partitura.usuario_id !== usuario_id) {
+      return res.status(403).json({ error: "No tienes permisos para actualizar esta partitura" });
+    }
+
+    // Construir la parte del SET para la consulta (solo los campos enviados).
+    const fieldsToUpdate = [];
+    const values = [];
+
+    // Solo agregamos los campos que fueron enviados
+    if (nombre) {
+      fieldsToUpdate.push("nombre = $1");
+      values.push(nombre);
+    }
+    if (artista) {
+      fieldsToUpdate.push("artista = $2");
+      values.push(artista);
+    }
+    if (genero) {
+      fieldsToUpdate.push("genero = $3");
+      values.push(genero);
+    }
+    if (instrumento) {
+      fieldsToUpdate.push("instrumento = $4");
+      values.push(instrumento);
+    }
+    if (nivel) {
+      fieldsToUpdate.push("nivel = $5");
+      values.push(nivel);
+    }
+    if (duracion) {
+      fieldsToUpdate.push("duracion = $6");
+      values.push(duracion);
+    }
+    if (descripcion) {
+      fieldsToUpdate.push("descripcion = $7");
+      values.push(descripcion);
+    }
+    if (pdf) {
+      fieldsToUpdate.push("pdf = $8");
+      values.push(pdf);
+    }
+    if (audio) {
+      fieldsToUpdate.push("audio = $9");
+      values.push(audio);
+    }
+    if (imagen) {
+      fieldsToUpdate.push("imagen = $10");
+      values.push(imagen);
+    }
+
+    // Si no se proporciona ningún dato para actualizar
+    if (fieldsToUpdate.length === 0) {
+      return res.status(400).json({ error: "No se proporcionaron datos para actualizar." });
+    }
+
+    // Agregar la fecha de modificación
+    fieldsToUpdate.push("fecha_modificacion = CURRENT_TIMESTAMP");
+    values.push(id);
+
+    // Crear la consulta de actualización
+    const updateQuery = `
+      UPDATE partituras
+      SET ${fieldsToUpdate.join(", ")}
+      WHERE id = $${values.length}
+      RETURNING *`;
+
+    // Ejecutar la consulta
+    const updatedPartitura = await pool.query(updateQuery, values);
+
+    // Devolver la partitura actualizada
+    res.json(updatedPartitura.rows[0]);
+
+  } catch (error) {
+    console.error("Error al actualizar la partitura:", error);
+    res.status(500).json({ error: "Error al actualizar la partitura" });
+  }
+});
+
 export default router;
