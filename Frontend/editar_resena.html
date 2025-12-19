@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="./iconos/tab_logo.png">
+    <title>Editar Reseña | Bit-els</title>
+
+    <!-- Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  
+  <body class="user-page">
+
+    <!-- Formulario para editar reseña -->
+    <section class="section">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+
+            <div class="box">
+              <h2 class="title is-3 has-text-centered">Editar Reseña</h2>
+
+              <form id="edit-resena-form">
+                <!-- Título de la reseña -->
+                <div class="field">
+                  <label class="label">Título</label>
+                  <div class="control">
+                    <input class="input" type="text" id="edit-titulo" value="" placeholder="Título de la reseña">
+                  </div>
+                </div>
+
+                <!-- Comentario -->
+                <div class="field">
+                  <label class="label">Comentario</label>
+                  <div class="control">
+                    <textarea class="textarea" id="edit-contenido" placeholder="Escribe tu reseña aquí..."></textarea>
+                  </div>
+                </div>
+
+                <!-- Calificación (estrellas) -->
+                <div class="field">
+                  <label class="label">Calificación</label>
+                  <div class="control">
+                    <div class="star-rating">
+                      <input type="radio" id="star5" name="rating" value="5"><label for="star5">★</label>
+                      <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                      <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                      <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                      <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Botón para guardar -->
+                <div class="control mt-3">
+                  <button class="button is-success">Actualizar reseña</button>
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script type="module" src="./js/editar_resena.js"></script>
+
+  </body>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>BIT-ELS</strong> — Donde las partituras encuentran oídos curiosos.
+      </p>
+      <p>
+        Desarrollado por <strong>Matías Milocik, Jerónimo Ferraro, Matías Xu y Valentín Fiasche</strong> · Facultad de Ingeniería de la Universidad de Buenos Aires
+      </p>
+      <p class="has-text-grey">
+        📧 Correo: bit-els@music.edu.ar<br>
+        📞 Teléfono: +54 11 4035-0227
+      </p>
+      <p>
+        <a href="index.html">Home</a>
+        ·
+        <a href="login.html">Login</a>
+      </p>
+      <p class="is-size-7 has-text-grey">
+        © 2025 Bit-els — Todos los derechos reservados
+      </p>
+      <div class="easter-egg">
+        <a href="https://youtu.be/OA3tnx5GFVA?si=tArjYSQrVA3kUGS_" target="_blank">
+          ♪
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</html>
+
