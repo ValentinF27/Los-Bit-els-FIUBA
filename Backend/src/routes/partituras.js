@@ -8,6 +8,7 @@ router.get("/populares", async (req, res) => {
     SELECT 
       p.id,
       p.nombre,
+      p.instrumento,
       p.artista,
       p.imagen,
       ROUND(COALESCE(AVG(r.estrellas), 0), 1) AS promedio_estrellas
@@ -28,6 +29,7 @@ router.get("/recientes", async (req, res) => {
     SELECT 
       p.id,
       p.nombre,
+      p.instrumento,
       p.artista,
       p.imagen,
       ROUND(COALESCE(AVG(r.estrellas), 0), 1) AS promedio_estrellas
@@ -41,8 +43,7 @@ router.get("/recientes", async (req, res) => {
   res.json(result.rows);
 });
 
-
-
+// Muestra partitura de id determinado.
 router.get("/:id", async (req, res) => {
   try {
     // Tomamos el id de la partitura desde la URL.
