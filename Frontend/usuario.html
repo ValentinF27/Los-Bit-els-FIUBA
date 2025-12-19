@@ -19,11 +19,47 @@
     <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
+        <!-- Link a Home -->
         <a class="navbar-item" href="./home.html">
+          <!-- Navbar Título -->
           <h1><strong>BIT-ELS</strong></h1>
-          <img src="./iconos/logo.png" alt="Logo del sitio web (notas musicales)">
+          <!-- Navbar logo -->
+          <img src="./iconos/logo.png"
+          alt="Logo del sitio web (notas musicales)">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="menuNavbar">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
+
+      <!--bloque central navbar-->
+      <div id="menuNavbar" class="navbar-menu">
+        <div class="navbar-item has-dropdown" id="navbarBusqueda" style="justify-content:center; align-items:center;">
+          <div class="navbar-link" style="padding:0; background:none;">
+            <div class="field has-addons" style="width:500px; margin:0;">
+              <div class="control is-expanded">
+                <input
+                  id="navbarInput"
+                  class="input is-focused"
+                  type="text"
+                  placeholder="Buscar..."
+                >
+              </div>
+              <div class="control">
+                <button id="navbarBotonBusqueda" class="button is-primary">
+                  Buscar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="navbar-dropdown" id="navbarDropdown"></div>
+        </div>
+
 
         <!-- Manejo de sesión -->
         <div class="navbar-end">
@@ -32,7 +68,7 @@
               <a class="button is-primary" id="signup-btn">
                 Sign up
               </a>
-              <!-- Link a Login -->
+            <!-- Link a Login -->
               <a class="button is-light" id="login-btn" href="./login.html">
                 Log in
               </a>
@@ -42,6 +78,7 @@
             </div>
           </div>
         </div>
+      </div>
     </nav>
 
     <!-- Sección de Usuario -->
@@ -88,6 +125,7 @@
       </div>
     </section>
 
+      <script type="module" src="./js/navbar.js"></script>
       <!-- Script JS -->
       <script type="module" src="js/usuario.js"></script>
 
