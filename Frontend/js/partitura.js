@@ -125,6 +125,11 @@ async function mostrarPartitura(id) {
       document.querySelector(".button.is-link").style.display = "inline-block";   // Botón editar
       document.querySelector(".button.is-danger").style.display = "inline-block";  // Botón eliminar
 
+      // Mostrar el link de editar
+      const editarLink = document.querySelector(".button.is-link");
+      editarLink.style.display = "inline-block";
+      editarLink.href = `editar_partitura.html?id=${partitura.id}`;
+
       // Llamar a la función para manejar el evento de eliminar
       document.querySelector(".button.is-danger").addEventListener("click", async () => {
         const confirmar = confirm("¿Estás seguro de que deseas eliminar esta partitura?");
@@ -132,6 +137,7 @@ async function mostrarPartitura(id) {
           await eliminarPartitura(partitura.id); // Llamada al backend para eliminar la partitura
         }
       });
+
     } else {
       // Si no es el id asociado, ocultamos los botones.
       document.querySelector(".button.is-link").style.display = "none";
