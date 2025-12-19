@@ -49,4 +49,39 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// Elimina partitura.
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { usuario_id } = req.body;
+
+    // Buscamos la partitura para verificar si el usuario es el propietario
+    const partituraResult = await pool.query(
+      `SELECT * FROM partituras WHERE id = $1`,
+      [id]
+    );
+
+    // Si no existe la partitura
+    if (partituraResult.rows.length === 0) {
+      return res.status(404).json({ error: "Partitura no encontrada" });
+    }
+
+    const partitura = partituraResult.rows[0];
+
+    // Verificar que el usuario logueado es el propietario de la partitura
+    if (partitura.usuario_id !== usuario_id) {
+      return res.status(403).json({ error: "No tienes permisos para eliminar esta partitura" });
+    }
+
+    // Eliminar la partitura (las reseñas se eliminarán automáticamente debido al CASCADE)
+    await pool.query(`DELETE FROM partituras WHERE id = $1`, [id]);
+
+    // Enviar respuesta de éxito
+    res.status(200).json({ message: "Partitura eliminada correctamente" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Hubo un error al eliminar la partitura" });
+  }
+});
+
 export default router;
