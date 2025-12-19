@@ -141,7 +141,7 @@
     const data = Object.fromEntries(new FormData(form));
 
     try {
-      const res = await fetch('http://localhost:3000/usuarios', {
+      const res = await fetch('http://localhost:3000/api/usuarios', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
