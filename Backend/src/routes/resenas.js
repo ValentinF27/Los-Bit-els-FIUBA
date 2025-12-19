@@ -84,6 +84,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
+// Editar reseñas.
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { titulo, contenido, estrellas } = req.body;
