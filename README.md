@@ -1,8 +1,46 @@
 # Trabajo practico final
 
 ## Descripción
+
 Este proyecto es una pagina web orientada a músicos. La plataforma cuenta con un **Home**, una página de **Usuarios** y una página de **Partituras**.  
 Los usuarios pueden registrarse, subir partituras y otros usuarios pueden dejar reseñas sobre dichas partituras, fomentando la interacción y el intercambio de material musical.
+
+---
+
+## Instalación y ejecución
+
+```bash
+# Clonar el repositorio
+git clone git@github.com:ValentinF27/Los-Bit-els-FIUBA.git
+cd Los-Bit-els-FIUBA
+
+# Método Docker:
+
+# Levantar todo con Docker
+docker compose up --build -d
+
+# Detener todo
+docker compose down
+
+# Aleternativa local:
+
+# Correr el Backend
+# cd Backend
+# make deps
+# make run
+
+# Correr database
+# make db
+
+# Correr el Frontend
+# cd ../Frontend
+# npx http-server
+
+---
+
+## Puertos
+- **Backend**: `http://localhost:3000`
+- **Frontend**: `http://localhost:8080/home.html`
 
 ---
 
@@ -95,27 +133,5 @@ Tabla `reseñas`:
 - **Read**: obtener todas las reseñas o una por ID.
 - **Update**: editar una reseña existente.
 - **Delete**: eliminar una reseña.
-
----
-
-## Puertos
-- **Backend**: `http://localhost:3000`
-
----
-
-## Instalación y ejecución
-
-```bash
-# Clonar el repositorio
-git clone git@github.com:ValentinF27/Los-Bit-els-FIUBA.git
-
-# Correr el Backend
-cd Backend
-make deps
-make run
-
-# Correr el Frontend
-cd Frontend
-http-server
 
 
