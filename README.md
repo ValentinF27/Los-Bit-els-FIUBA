@@ -35,7 +35,7 @@ docker compose down
 # Correr el Frontend
 # cd ../Frontend
 # npx http-server
-
+```
 ---
 
 ## Puertos
